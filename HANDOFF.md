@@ -11,8 +11,13 @@ This document gives a new Claude everything needed to continue the EZ TMS websit
 **Status:** Homepage complete and live. All other pages are in Figma, ready to be coded.
 
 **Live URL:** https://joaovitormiguel.github.io/ez-tms-website/  
-**GitHub repo:** https://github.com/joaovitormiguel/ez-tms-website (public)  
-**Local path:** `~/Documents/Claude/Code/ez-tms-website`
+**GitHub repo:** https://github.com/joaovitormiguel/ez-tms-website (public)
+
+Clone it anywhere on your machine to get started:
+```bash
+git clone https://github.com/joaovitormiguel/ez-tms-website.git
+cd ez-tms-website
+```
 
 ---
 
@@ -20,7 +25,7 @@ This document gives a new Claude everything needed to continue the EZ TMS websit
 
 **URL:** https://www.figma.com/design/mAi3ldeK0zZfRJTlTKztii/CDM---EZ-TMS  
 **File key:** `mAi3ldeK0zZfRJTlTKztii`  
-**Page:** "DELIVERIES" (page id `515:2` / canvas `567:190`)  
+**Page:** "Website Design Exploration" (canvas node `567:190`)  
 
 All page frames are laid out as a **horizontal row** on the canvas. Here are the top-level frame node IDs:
 
@@ -48,9 +53,8 @@ All page frames are laid out as a **horizontal row** on the canvas. Here are the
 - **Deployment:** every push to `main` auto-deploys (~1 min build time)
 - **Local preview:** `node server.js` (included in repo) serves on port 4173
 
-To preview locally:
+To preview locally (from the repo root):
 ```bash
-cd ~/Documents/Claude/Code/ez-tms-website
 node server.js
 # open http://localhost:4173
 ```
