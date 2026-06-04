@@ -72,7 +72,14 @@ h1,h2,h3{font-family:var(--display);font-weight:900;text-transform:uppercase;lin
 /* ===== features + integrations (dark) ===== */
 .features{background:var(--navy) url('assets/space-bg.png') center top/cover no-repeat;padding:72px 0 84px}
 .section-title{font-size:42px;text-align:center;margin-bottom:40px}
-.feature-grid-img{display:block;max-width:1180px;width:100%;margin:0 auto;height:auto}
+.feature-reveal{position:relative;max-width:1180px;margin:0 auto;max-height:700px;overflow:hidden;transition:max-height .65s ease}
+.feature-reveal.open{max-height:1600px}
+.feature-grid-img{display:block;width:100%;height:auto}
+.feature-fade{position:absolute;left:0;right:0;bottom:0;height:300px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(10,18,37,0) 0,var(--navy) 88%);transition:opacity .4s ease}
+.feature-reveal.open .feature-fade{opacity:0}
+.feature-toggle-wrap{text-align:center;margin-top:28px}
+.feature-toggle{cursor:pointer}
 .integrations{text-align:center;padding-top:34px}
 .int-title{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:50px;margin-bottom:16px}
 .int-sub{font-size:18px;color:#cdd6ea;max-width:60ch;margin:0 auto 30px}
