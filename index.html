@@ -7,7 +7,7 @@
 <meta name="description" content="EZ TMS is the cloud-based TMS for freight brokerages ready to level up. The best software for full truckload and LTL shipping." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;900&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;800;900&family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -17,112 +17,115 @@
   <div class="wrap header-inner">
     <a href="#" class="logo"><img src="assets/logo.png" alt="EZ TMS" /></a>
     <nav class="nav">
-      <a href="#features">About</a>
-      <a href="#features">Discover</a>
+      <a href="#">About</a>
+      <a href="#">Discover</a>
       <a href="#integrations">Integrations</a>
       <a href="#">Pricing</a>
       <a href="#cta">Contact</a>
-      <a href="#" class="btn-login">Login</a>
+      <a href="#" class="btn-outline sm">Login</a>
     </nav>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
+  <img src="assets/foam-finger.png" alt="" class="hero-finger" />
   <div class="wrap hero-inner">
-    <div class="hero-copy">
-      <h1>Less Clicks.<br />More <span class="r">Growth.</span></h1>
-      <p>The TMS for freight brokerages ready to <span class="r">level up</span>. The best cloud-based software for full truckload and LTL shipping.</p>
-      <a href="#cta" class="btn">Request a Demo</a>
-    </div>
-    <div class="hero-art">
-      <img src="assets/foam-finger.png" alt="Foam finger #1" />
-    </div>
+    <h1><span class="r">Less Clicks.</span><br />More Growth.</h1>
+    <p>The TMS for freight brokerages ready to <span class="r">level up</span>. The best cloud-based software for full truckload and LTL shipping.</p>
+    <a href="#cta" class="btn-outline">Request a Demo</a>
   </div>
 </section>
+
 <div class="stripes"><span></span><span></span><span></span></div>
 
 <!-- PROBLEM -->
 <section class="problem">
   <div class="wrap">
     <h2>If your TMS is slowing your brokerage down,<br /><span class="r">it’s costing you margin.</span></h2>
-    <p class="lead">You’ve outgrown your TMS. EZ TMS is built for what comes next: full load cycle, one login, automation that earns its keep.</p>
-    <div class="icon-row">
-      <div class="icon-col"><img src="assets/icon1.png" alt="" /></div>
-      <div class="icon-col"><img src="assets/icon2.png" alt="" /></div>
-      <div class="icon-col"><img src="assets/icon3.png" alt="" /></div>
-      <div class="icon-col"><img src="assets/icon4.png" alt="" /></div>
-    </div>
-  </div>
-</section>
+    <p class="lead">You’ve outgrown your TMS. <strong>EZ TMS is built for what comes next</strong>: full load cycle, one login, automation that earns its keep.</p>
 
-<!-- FEATURES -->
-<section class="features" id="features">
-  <div class="wrap">
-    <h2 class="section-title">Built to help you <span class="r">level up</span></h2>
-    <div class="feature-grid">
-      <article class="feature">
+    <div class="carousel">
+      <button class="car-arrow left" aria-label="Previous">‹</button>
+      <div class="car-track">
         <img src="assets/myloads.png" alt="My Loads dashboard" />
-        <h3>Plug into your stack.</h3>
-        <p>EZ TMS connects to the tools your brokerage already runs. No setup fees.</p>
-      </article>
-      <article class="feature">
         <img src="assets/load-pipelines.png" alt="Load pipelines" />
+        <img src="assets/company-dashboard.png" alt="Company dashboard" />
+      </div>
+      <button class="car-arrow right" aria-label="Next">›</button>
+    </div>
+
+    <div class="icon-row">
+      <div class="icon-col">
+        <img src="assets/icon1.png" alt="" />
         <h3>Built by brokers, for brokers.</h3>
         <p>Every feature traces back to a real workflow.</p>
-      </article>
-      <article class="feature">
-        <img src="assets/company-dashboard.png" alt="Company dashboard" />
+      </div>
+      <div class="icon-col">
+        <img src="assets/icon2.png" alt="" />
         <h3>Flat-rate pricing.</h3>
         <p>One monthly fee per seat. No per-load charges or feature gates.</p>
-      </article>
-      <article class="feature">
-        <img src="assets/feature-box.png" alt="Onboarding" />
+      </div>
+      <div class="icon-col">
+        <img src="assets/icon3.png" alt="" />
         <h3>A seamless transition.</h3>
         <p>Easy to learn, easy to train. Get up and running in no time.</p>
-      </article>
-      <article class="feature wide">
+      </div>
+      <div class="icon-col">
+        <img src="assets/icon4.png" alt="" />
         <h3>A team that has your back.</h3>
         <p>All US-based reps with the experience to handle any situation.</p>
-      </article>
+      </div>
     </div>
   </div>
 </section>
+
 <div class="stripes"><span></span><span></span><span></span></div>
 
-<!-- INTEGRATIONS -->
-<section class="integrations" id="integrations">
+<!-- FEATURES + INTEGRATIONS -->
+<section class="features">
   <div class="wrap">
-    <h2 class="section-title dark">Integrations</h2>
-    <div class="logo-row">
+    <h2 class="section-title">Built to help you <span class="r">level up</span></h2>
+    <img src="assets/feature-grid.png" alt="Built-in CRM, Digital Documentation, Team Task Manager, Automated Batch Invoicing, Rating and Capacity, Freight Matching, Customer Portals, Digital Carrier Onboarding, Live Tracking, Live Dashboards" class="feature-grid-img" />
+  </div>
+
+  <div class="wrap integrations" id="integrations">
+    <h2 class="int-title">Integrations</h2>
+    <p class="int-sub">Plug into your stack. EZ TMS connects to the tools your brokerage already runs. <strong>No setup fees.</strong></p>
+    <div class="logo-strip">
       <img src="assets/parade.png" alt="Parade" />
       <img src="assets/triumph.png" alt="Triumph" />
       <img src="assets/truckstop.png" alt="Truckstop" />
       <img src="assets/dat.png" alt="DAT" />
       <img src="assets/denim.png" alt="Denim" />
     </div>
-    <a href="#" class="btn">See all integrations</a>
+    <a href="#" class="btn-outline">See all integrations</a>
   </div>
 </section>
+
 <div class="stripes"><span></span><span></span><span></span></div>
 
 <!-- TESTIMONIAL -->
 <section class="testimonial">
   <div class="wrap testimonial-inner">
-    <blockquote>
-      “EZ TMS has been the perfect match for our upstart brokerage. It checks all the boxes: ease of use, simplicity, accessibility, no &lsquo;fluff&rsquo; features, etc. And the best part of our experience with the TMS so far is the customer service. Any time we have a question or an issue they are quick to assist.”
-    </blockquote>
-    <p class="cite"><strong>Lee Connell</strong> — CEO, LRT Solutions</p>
+    <span class="q-open">“</span>
+    <blockquote>EZ TMS has been the perfect match for our upstart brokerage. It checks all the boxes: ease of use, simplicity, accessibility, no "fluff" features, etc. And the best part of our experience with the TMS so far is the customer service. Any time we have a question or an issue they are quick to assist.<span class="q-close">”</span></blockquote>
+    <p class="cite">Lee Connell - <span class="r">CEO, LRT Solutions</span></p>
+    <hr />
   </div>
 </section>
 
+<div class="stripes"><span></span><span></span><span></span></div>
+
 <!-- CLOSING CTA -->
-<section class="cta" id="cta" style="background-image:url('assets/testimonial.png')">
-  <div class="cta-overlay"></div>
-  <div class="wrap cta-inner">
-    <h2>The best kept <span class="r">secret</span> in freight.</h2>
-    <p>See why we’re called the best kept secret in freight.</p>
-    <a href="#" class="btn">Request a Demo</a>
+<section class="cta" id="cta">
+  <div class="cta-grid">
+    <div class="cta-img"><img src="assets/testimonial.png" alt="The best kept secret in freight" /></div>
+    <div class="cta-copy">
+      <p class="eyebrow">See why we’re called</p>
+      <h2>The best kept<br /><span class="r">secret</span> in freight.</h2>
+      <a href="#" class="btn-outline">Request a Demo</a>
+    </div>
   </div>
 </section>
 
@@ -145,7 +148,7 @@
       <a href="#">Pricing</a>
     </nav>
   </div>
-  <div class="copyright wrap">© 2026 All Rights Reserved | EZ TMS | <a href="#">General Terms and Conditions</a></div>
+  <div class="wrap copyright">© 2026 All Rights Reserved | EZ TMS | <a href="#">General Terms and Conditions</a></div>
 </footer>
 
 </body>
