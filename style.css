@@ -61,8 +61,6 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .hero-inner{position:relative;z-index:2;padding-top:40px;padding-bottom:40px}
 .hero h1{font-size:70px;letter-spacing:-.02em}
 .hero p{font-size:19px;max-width:34ch;margin:22px 0 30px;color:#e7ecf7}
-.hero-finger{position:absolute;top:64px;right:48px;height:170px;width:auto;z-index:1;
-  filter:drop-shadow(0 18px 26px rgba(0,0,0,.5))}
 
 /* ===== problem ===== */
 .problem{background:var(--white);color:var(--navy);text-align:center;padding:70px 0 84px}
@@ -112,16 +110,32 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .logo-strip img{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
 
 /* ===== testimonial ===== */
-.testimonial{background:var(--white);color:var(--navy);padding:64px 0 72px}
-.testimonial-inner{position:relative;max-width:1100px;padding-left:120px}
-.q-open{position:absolute;left:64px;top:-6px;font-family:var(--display);font-weight:400;font-size:150px;
-  line-height:1;color:var(--red)}
-.testimonial blockquote{font-size:22px;line-height:1.55;color:var(--navy);font-family:var(--body)}
-.q-close{font-family:var(--display);font-weight:400;color:var(--red);font-size:60px;line-height:0;
-  vertical-align:-18px;margin-left:6px}
-.testimonial .cite{font-size:40px;margin-top:20px;color:var(--navy)}
-.testimonial .cite{font-family:var(--display);font-weight:400;text-transform:uppercase}
-.testimonial hr{border:none;border-top:2px solid var(--red);margin-top:18px;max-width:760px}
+.testimonial{background:var(--white);color:var(--navy);padding:48px 0 56px}
+.testimonial-wrap{display:flex;align-items:center;gap:0}
+/* foam finger — left anchor */
+.test-finger{flex:0 0 auto;width:140px;height:auto;align-self:center;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.18))}
+/* slider — takes remaining space */
+.test-slider{flex:1;min-width:0;overflow:hidden}
+.test-slide{display:none;animation:fadeIn .4s ease}
+.test-slide.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateX(12px)}to{opacity:1;transform:none}}
+/* quote block: relative container for q-marks */
+.test-quote{position:relative;padding:50px 80px 50px 60px}
+.q-mark{font-family:var(--display);font-weight:400;font-size:180px;line-height:.8;
+  color:var(--red);position:absolute;user-select:none}
+.q-open{top:0;left:0}
+.q-close{bottom:0;right:0;line-height:1}
+.test-quote blockquote{font-family:var(--body);font-size:22px;line-height:1.6;
+  color:var(--navy);font-weight:400;position:relative;z-index:1}
+.testimonial .cite{font-family:var(--display);font-weight:400;font-size:36px;
+  text-transform:uppercase;color:var(--navy);padding:0 0 0 60px;margin-top:12px}
+.testimonial hr{border:none;border-top:2px solid var(--red);margin:16px 60px 0}
+/* next arrow — right anchor */
+.test-arrow{flex:0 0 auto;width:52px;height:52px;background:none;border:none;
+  font-size:52px;color:var(--navy2);cursor:pointer;display:flex;align-items:center;
+  justify-content:center;line-height:1;transition:color .15s;align-self:center;padding:0}
+.test-arrow:hover{color:var(--red)}
 
 /* ===== closing CTA ===== */
 .cta{background:var(--navy)}
@@ -180,7 +194,12 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
   .logo-strip{gap:28px;padding:22px}
   .testimonial-inner{padding-left:0;padding-top:60px}
   .q-open{left:0;font-size:96px}
-  .testimonial .cite{font-size:26px}
+  .test-finger{width:80px}
+  .test-quote{padding:40px 50px 40px 40px}
+  .q-mark{font-size:120px}
+  .testimonial .cite{font-size:22px;padding-left:40px}
+  .testimonial hr{margin:14px 40px 0}
+  .test-arrow{width:36px;height:36px;font-size:36px}
   .cta-grid{grid-template-columns:1fr}
   .cta-copy{padding:30px 24px}
   .cta-copy h2{font-size:34px}
