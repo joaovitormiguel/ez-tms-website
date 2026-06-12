@@ -257,6 +257,39 @@ body.page-light{background:#fff}
 .cta-band-inner{position:relative;z-index:2}
 .cta-band-inner .btn-outline{margin-top:48px}
 
+/* ltl: dark band with overlapping app screenshots */
+.page-hero.strong-left::before{background:linear-gradient(90deg,#0a1225 44%,rgba(10,18,37,0) 100%),
+  linear-gradient(0deg,#0a1225 5%,rgba(10,18,37,0) 69%)}
+.ltl-band{background:var(--navy);padding:130px 0 56px}
+.lead-light{font-size:22px;letter-spacing:.07em;text-align:center;color:#fff;max-width:786px;margin:0 auto 70px}
+.shot-cluster{display:flex;align-items:center;justify-content:center;gap:34px}
+.cluster{position:relative;width:1104px;max-width:100%;height:306px;flex:0 1 auto}
+.cluster .shot{position:absolute;border-radius:14px;box-shadow:0 4px 20px 3px rgba(0,0,0,.25);object-fit:cover}
+.cluster .shot-l{left:0;top:12px;width:550px;height:280px;filter:brightness(.9)}
+.cluster .shot-r{right:0;top:13px;width:550px;height:280px;filter:brightness(.9)}
+.cluster .shot-c{left:50%;transform:translateX(-50%);top:0;width:600px;height:306px;z-index:2}
+.cluster-arrow{flex:0 0 auto;background:none;border:none;color:var(--red);font-size:44px;line-height:1;
+  cursor:pointer;font-family:var(--display);padding:0}
+.cluster-arrow:hover{color:#ff3d41}
+.dots{display:flex;justify-content:center;gap:8px;margin-top:34px}
+.dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.45)}
+.dots span.on{background:var(--red)}
+
+/* big quote with foam finger */
+.big-quote{position:relative;background:#fff;color:var(--navy2);min-height:621px;overflow:hidden;padding:105px 0 80px}
+.bq-finger{position:absolute;left:-168px;top:-98px;width:732px;height:732px;object-fit:contain;
+  transform:rotate(5.72deg);filter:drop-shadow(0 4px 4px rgba(0,0,0,.25))}
+.bq-content{position:relative;max-width:910px;margin:0 0 0 500px;padding-right:64px}
+.bq-mark{font-family:var(--display);font-size:300px;letter-spacing:.07em;color:var(--red);line-height:.74;user-select:none}
+.bq-open{position:absolute;left:0;top:-10px}
+.bq-text{position:relative;font-family:"Red Hat Display",var(--display);font-weight:900;font-size:55px;
+  line-height:1;text-transform:uppercase;color:var(--navy2);max-width:760px;margin:50px 0 0 96px}
+.bq-close{position:absolute;font-size:300px;line-height:.5;margin-left:14px;vertical-align:text-bottom;
+  display:inline-block;height:40px;transform:translateY(34px)}
+.bq-rule{border:none;border-top:2px solid var(--red);width:86px;margin:60px 0 6px 96px}
+.bq-cite{font-size:22px;letter-spacing:.07em;margin-left:96px;color:var(--navy2)}
+.cta-band.red-top{border-top:2px solid var(--red)}
+
 /* light footer */
 .site-footer.light{background:#fff;box-shadow:0 -4px 4px rgba(0,0,0,.12);padding:14px 0 12px}
 .site-footer.light .foot-brand{flex-direction:column;align-items:flex-start;gap:6px}
@@ -288,6 +321,13 @@ body.page-light{background:#fff}
   .page-hero-inner{padding-left:var(--pad);padding-top:80px}
   .band-title{margin-bottom:56px}
   .cta-band-photo{width:100%;left:0;top:0;height:100%}
+  .cluster{height:260px}
+  .cluster .shot-l,.cluster .shot-r{width:44%;height:230px}
+  .cluster .shot-c{width:52%;height:260px}
+  .bq-finger{width:480px;height:480px;left:-140px;top:-40px}
+  .bq-content{margin-left:330px}
+  .bq-text{font-size:40px}
+  .bq-mark{font-size:200px}
   .problem h2{font-size:38px}
   .cta-copy h2{font-size:40px}
   .icon-row{grid-template-columns:repeat(2,1fr);gap:30px}
@@ -352,4 +392,17 @@ body.page-light{background:#fff}
   .band-title{margin-bottom:40px}
   .focus-col .learn{font-size:18px;margin-top:10px}
   .cta-band{height:360px}
+  .ltl-band{padding:56px 0 40px}
+  .lead-light{font-size:17px;margin-bottom:36px}
+  .cluster{height:200px}
+  .cluster .shot-l,.cluster .shot-r{display:none}
+  .cluster .shot-c{width:100%;height:auto;position:static;transform:none}
+  .big-quote{padding:48px 0 48px;min-height:0}
+  .bq-finger{display:none}
+  .bq-content{margin:0;padding:0 var(--pad)}
+  .bq-text{font-size:26px;margin:36px 0 0 0}
+  .bq-mark{font-size:120px}
+  .bq-open{top:-20px}
+  .bq-close{transform:translateY(16px)}
+  .bq-rule,.bq-cite{margin-left:0}
 }
