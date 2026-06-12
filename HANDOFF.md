@@ -8,7 +8,7 @@ This document gives a new Claude everything needed to continue the EZ TMS websit
 
 **Client:** EZ TMS — a cloud-based TMS (Transportation Management System) for freight brokerages.  
 **Goal:** Code the EZ TMS marketing site 1:1 from Figma and host it on GitHub Pages.  
-**Status:** Homepage and Why EZ (`why-ez.html`) complete. All other pages are in Figma, ready to be coded.
+**Status:** ALL pages coded and live: homepage, `why-ez.html`, `truckload-shipping.html`, `ltl-portal.html`, `edi-connectivity.html`, `integrations.html`, `pricing.html`, and 3 campaign landing pages (`campaign-1/2/3.html`, noindexed).
 
 **Live URL:** https://joaovitormiguel.github.io/ez-tms-website/  
 **GitHub repo:** https://github.com/joaovitormiguel/ez-tms-website (public)
@@ -185,25 +185,30 @@ When coding a new page:
 
 ## Pages still to build
 
-All exist in Figma — not coded yet (`2 Why EZ` was completed as `why-ez.html`):
+All pages are now coded (June 2026):
 
-| Page | Figma node | Notes |
+| Page | Figma node | File |
 |---|---|---|
-| 3 Truckload Shipping | `879:505` | 1600×2068 |
-| 4 LTL Portal | `879:654` | 1600×2636 |
-| 9 EDI Connectivity | `883:817` | 1600×2550. Bitfreighter partnership, X12 EDI (204/990/214/210/997), 3 cards: dedicated rep / modern X12 / flat pricing |
-| 10 Integrations | `921:97` | 1600×3101 (rebuilt; old `885:990` and logo-draft `910:11` were removed from Figma) |
-| 11 Pricing | `887:1089` | 1600×4437 |
-| Campaign Landing Pages | `800:2`, `844:2`, `872:224` | 3 variants |
+| 2 Why EZ | `809:694` | `why-ez.html` |
+| 3 Truckload Shipping | `879:505` | `truckload-shipping.html` |
+| 4 LTL Portal | `879:654` | `ltl-portal.html` |
+| 9 EDI Connectivity | `883:817` | `edi-connectivity.html` (frame grew to 1600×2786) |
+| 10 Integrations | `921:97` | `integrations.html` (logos in `assets/integrations/`) |
+| 11 Pricing | `887:1089` | `pricing.html` (FAQ answers taken from designer's off-canvas draft at x≈20312) |
+| Campaign Landing Pages | `800:2`, `844:2`, `872:224` | `campaign-1/2/3.html` (noindex; not linked from nav) |
 
-When adding new pages:
-- Create `page-name.html` + link from the nav in all existing pages
-- Follow the same `@font-face` / CSS variables (already in `style.css` — just link the stylesheet)
-- No new dependencies needed
+Shared interior-page patterns live in `style.css`: `.site-header.light`, `.site-footer.light`, `.stripes.light[.flip]`, `.page-hero`, `.cta-band`, `.btn-outline.lg`, `.btn-solid`, `.rhd` (Red Hat Display Black — self-hosted in `assets/fonts/Red_Hat_Display/`, used by the newer Figma pages alongside Momo).
 
 ---
 
-## Known issues / TODOs
+## Known issues / TODOs (updated June 2026)
+
+- **"Discover" nav link** is still `href="#"` everywhere — no Discover page exists in Figma. Truckload/LTL/EDI pages have no nav entry; consider a Discover dropdown.
+- **Campaign "Request Access" form** uses a `mailto:` action as a placeholder — wire to a real form backend before running ads.
+- **Pricing FAQ Q1 answer** is the designer's placeholder copy (it repeats the Operations feature list); confirm real copy.
+- **THREAT LEVEL field** on campaign dossiers reads "Growth-minded brokerages." — duplicated from CLEARANCE in the Figma; confirm intended copy.
+
+### Original list
 
 - **Mockup carousel** (problem section): the prev/next arrows are present in HTML but have no JS — they don't actually slide yet. Needs a small vanilla JS carousel.
 - **Testimonials slider**: the `›` arrow is present but no JS. Add `.test-slide` divs + wire click handler on `#testNext` to cycle through them.
