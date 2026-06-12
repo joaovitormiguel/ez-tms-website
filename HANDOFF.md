@@ -8,7 +8,7 @@ This document gives a new Claude everything needed to continue the EZ TMS websit
 
 **Client:** EZ TMS — a cloud-based TMS (Transportation Management System) for freight brokerages.  
 **Goal:** Code the EZ TMS marketing site 1:1 from Figma and host it on GitHub Pages.  
-**Status:** Homepage complete and live. All other pages are in Figma, ready to be coded.
+**Status:** Homepage and Why EZ (`why-ez.html`) complete. All other pages are in Figma, ready to be coded.
 
 **Live URL:** https://joaovitormiguel.github.io/ez-tms-website/  
 **GitHub repo:** https://github.com/joaovitormiguel/ez-tms-website (public)
@@ -36,13 +36,11 @@ All page frames are laid out as a **horizontal row** on the canvas. Here are the
 | 3 Truckload Shipping | `879:505` | x=6378 |
 | 4 LTL Portal | `879:654` | x=8705 |
 | 9 EDI Connectivity | `883:817` | x=11032 |
-| 10 Integrations | `885:990` | x=13359 |
+| 10 Integrations | `921:97` | x=16073 (rebuilt — old `885:990` no longer exists) |
 | 11 Pricing | `887:1089` | x=15686 |
 | Campaign Landing Page (×3) | `800:2`, `844:2`, `872:224` | x=-678, 1321, 3320 (y=6708) |
 
-**Alt/draft frames already created (safe copies, don't edit originals):**
-- `902:11` — "9 EDI Connectivity — Alt" (layout exploration, below original)
-- `910:11` — "10 Integrations — Logos" (duplicate with logo catalog built in)
+> The alt/draft frames mentioned in earlier versions of this doc (`902:11`, `910:11`) have been removed from the Figma file. The Integrations frame `921:97` is the current source of truth (1600×3101).
 
 ---
 
@@ -187,15 +185,14 @@ When coding a new page:
 
 ## Pages still to build
 
-All exist in Figma — none have been coded yet:
+All exist in Figma — not coded yet (`2 Why EZ` was completed as `why-ez.html`):
 
 | Page | Figma node | Notes |
 |---|---|---|
-| 2 Why EZ | `809:694` | 1600×3172 |
 | 3 Truckload Shipping | `879:505` | 1600×2068 |
 | 4 LTL Portal | `879:654` | 1600×2636 |
 | 9 EDI Connectivity | `883:817` | 1600×2550. Bitfreighter partnership, X12 EDI (204/990/214/210/997), 3 cards: dedicated rep / modern X12 / flat pricing |
-| 10 Integrations | `885:990` | 1600×3955. **Logo catalog already built** in Figma draft frame `910:11` — use that as reference. 7 integration categories + LTL marketplace + 22-carrier grid (4 missing logos are placeholders) |
+| 10 Integrations | `921:97` | 1600×3101 (rebuilt; old `885:990` and logo-draft `910:11` were removed from Figma) |
 | 11 Pricing | `887:1089` | 1600×4437 |
 | Campaign Landing Pages | `800:2`, `844:2`, `872:224` | 3 variants |
 
