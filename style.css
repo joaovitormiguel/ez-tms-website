@@ -290,6 +290,39 @@ body.page-light{background:#fff}
 .bq-cite{font-size:22px;letter-spacing:.07em;margin-left:96px;color:var(--navy2)}
 .cta-band.red-top{border-top:2px solid var(--red)}
 
+/* edi connectivity */
+.btn-solid{display:inline-block;background:var(--red);border:2.5px solid var(--red);border-radius:10px;
+  color:#fff;font-family:var(--body);font-weight:400;text-transform:uppercase;font-size:17px;
+  letter-spacing:.07em;padding:15px 28px;transition:filter .15s ease}
+.btn-solid:hover{filter:brightness(1.12)}
+.edi-hero{background:var(--navy);display:flex;flex-direction:column;align-items:center;gap:28px;
+  padding:64px 0 10px;min-height:859px;text-align:center}
+.lg-title{font-size:78px;line-height:84px}
+.edi-sub{font-size:22px;color:#fff;max-width:720px}
+.edi-photo{width:1120px;max-width:92%;height:366px;object-fit:cover;border:2px solid var(--red);border-radius:10px}
+.edi-lockup{display:flex;align-items:center;gap:16px}
+.edi-lockup .lk-ez{height:90px;width:auto}
+.edi-lockup .lk-plus{font-size:58px;line-height:62px}
+.edi-lockup .lk-bf{height:59px;width:auto}
+.edi-matters{background:var(--navy);display:flex;align-items:center;justify-content:center;gap:80px;
+  min-height:360px;padding:20px 64px 40px}
+.em-copy h2{font-family:"Red Hat Display",var(--display);font-weight:900;font-size:58px;line-height:62px;color:#fff}
+.em-copy p{font-size:22px;color:#fff;max-width:520px;margin-top:20px}
+.stat-box{width:520px;height:300px;border:2px solid var(--red);border-radius:16px;overflow:hidden;
+  box-shadow:0 4px 30px rgba(0,0,0,.25);flex:0 0 auto}
+.stat-box img{width:100%;height:100%;object-fit:cover}
+/* skewed "what you get" cards (svg outlines + overlaid text) */
+.edi-cards{position:relative;width:1306px;max-width:100%;height:372px;margin:0 auto;
+  background:url('assets/edi-cards.svg') center/contain no-repeat}
+.edi-card{position:absolute;top:68px;width:340px;text-align:left}
+.edi-card:nth-child(1){left:33px}
+.edi-card:nth-child(2){left:488px}
+.edi-card:nth-child(3){left:950px}
+.edi-card h3{font-size:32px;color:var(--navy2);line-height:1}
+.edi-card p{position:absolute;top:138px;font-size:22px;color:var(--navy2);max-width:339px}
+.cta-buttons{display:flex;gap:30px;justify-content:center;align-items:center;margin-top:48px}
+.cta-buttons .btn-outline{margin-top:0}
+
 /* light footer */
 .site-footer.light{background:#fff;box-shadow:0 -4px 4px rgba(0,0,0,.12);padding:14px 0 12px}
 .site-footer.light .foot-brand{flex-direction:column;align-items:flex-start;gap:6px}
@@ -328,6 +361,15 @@ body.page-light{background:#fff}
   .bq-content{margin-left:330px}
   .bq-text{font-size:40px}
   .bq-mark{font-size:200px}
+  .lg-title{font-size:56px;line-height:1.1}
+  .edi-hero{min-height:0;padding-bottom:48px}
+  .edi-matters{flex-direction:column;gap:36px;padding:48px var(--pad)}
+  .em-copy h2{font-size:44px;line-height:1.1}
+  .edi-cards{background:none;height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;width:auto}
+  .edi-card{position:static;width:auto;border:1px solid rgba(24,41,84,.25);border-radius:24px;padding:28px}
+  .edi-card:nth-child(1){border-color:var(--red);background:rgba(239,21,26,.05)}
+  .edi-card h3{font-size:26px}
+  .edi-card p{position:static;margin-top:16px;font-size:19px}
   .problem h2{font-size:38px}
   .cta-copy h2{font-size:40px}
   .icon-row{grid-template-columns:repeat(2,1fr);gap:30px}
@@ -405,4 +447,16 @@ body.page-light{background:#fff}
   .bq-open{top:-20px}
   .bq-close{transform:translateY(16px)}
   .bq-rule,.bq-cite{margin-left:0}
+  .lg-title{font-size:36px}
+  .edi-sub{font-size:17px;padding:0 var(--pad)}
+  .edi-photo{height:200px}
+  .edi-lockup .lk-ez{height:56px}
+  .edi-lockup .lk-plus{font-size:36px}
+  .edi-lockup .lk-bf{height:36px}
+  .em-copy h2{font-size:34px}
+  .em-copy p{font-size:17px}
+  .stat-box{width:100%;height:220px}
+  .edi-cards{grid-template-columns:1fr}
+  .cta-buttons{flex-direction:column;gap:16px;margin-top:28px}
+  .btn-solid.lg{font-size:13px;padding:12px 18px}
 }
