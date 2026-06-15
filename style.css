@@ -341,7 +341,8 @@ body.page-light{background:#fff}
 .dots span.on{background:var(--red)}
 
 /* big quote with foam finger */
-.big-quote{position:relative;background:#fff;color:var(--navy2);min-height:621px;overflow:hidden;padding:105px 0 80px}
+.big-quote{position:relative;background:#fff;color:var(--navy2);min-height:621px;
+  overflow:clip;overflow-clip-margin:260px;padding:105px 0 80px}
 .bq-finger{position:absolute;left:-168px;top:-98px;width:732px;height:732px;object-fit:contain;
   transform:rotate(5.72deg);filter:drop-shadow(0 4px 4px rgba(0,0,0,.25))}
 .bq-content{position:relative;max-width:910px;margin:0 0 0 500px;padding-right:64px}
