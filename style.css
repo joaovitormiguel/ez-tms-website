@@ -252,7 +252,8 @@ body.page-light{background:#fff}
   box-shadow:0 30px 64px rgba(10,18,37,.3);padding:46px 58px 44px}
 .wq-mark{display:block;font-family:var(--display);font-size:84px;line-height:.7;color:var(--red);height:50px;user-select:none}
 .wq-text{font-family:var(--body);font-weight:500;font-size:21px;line-height:1.55;color:var(--navy2);margin:0}
-.wq-cite{display:block;margin-top:28px}
+.wq-close{text-align:right;margin-top:2px}
+.wq-cite{display:block;margin-top:18px}
 .wq-name{display:block;font-family:"Red Hat Display",var(--display);font-weight:900;font-size:32px;color:var(--navy2);line-height:1.1}
 .wq-title{display:block;font-size:18px;color:#5d6a86;margin-top:5px}
 
