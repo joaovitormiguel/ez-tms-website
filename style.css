@@ -149,11 +149,12 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .logo-strip img{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
 
 /* ===== testimonial ===== */
-.testimonial{background:var(--white);color:var(--navy);padding:48px 0 56px}
-.testimonial-wrap{display:flex;align-items:center;gap:0}
-/* foam finger — left anchor */
-.test-finger{flex:0 0 auto;width:140px;height:auto;align-self:center;
-  filter:drop-shadow(0 10px 20px rgba(0,0,0,.18))}
+.testimonial{position:relative;overflow:visible;background:var(--white);color:var(--navy);padding:92px 0 104px}
+.testimonial-wrap{display:flex;align-items:center;gap:0;padding-left:30%}
+/* foam finger — large, bleeds off the left and pokes up into the section above */
+.test-finger{position:absolute;left:-5%;top:0;width:45%;max-width:720px;height:auto;
+  transform:translateY(-26%);z-index:5;pointer-events:none;
+  filter:drop-shadow(0 14px 22px rgba(0,0,0,.2))}
 /* slider — takes remaining space */
 .test-slider{flex:1;min-width:0;overflow:hidden}
 .test-slide{display:none;animation:fadeIn .4s ease}
@@ -667,10 +668,11 @@ body.page-light{background:#fff}
   .feature-card h3{font-size:18px}
   .feature-card .desc{font-size:14px;margin-top:6px}
   .logo-strip{gap:28px;padding:22px}
-  .testimonial-inner{padding-left:0;padding-top:60px}
+  .testimonial{padding:60px 0 56px}
+  .testimonial-wrap{padding-left:34%}
+  .test-finger{width:42%;left:-8%;transform:translateY(-22%)}
   .q-open{left:0;font-size:96px}
-  .test-finger{width:80px}
-  .test-quote{padding:40px 50px 40px 40px}
+  .test-quote{padding:40px 24px 40px 8px}
   .q-mark{font-size:120px}
   .testimonial .cite{font-size:22px;padding-left:40px}
   .testimonial hr{margin:14px 40px 0}
