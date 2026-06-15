@@ -127,6 +127,18 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .feat-row.r4{--o:.36}
 .feat-row.r5{--o:.2}
 .feat-row.r6{--o:.1}
+/* ROLODEX: pinned stage; JS drives per-row transform/opacity on scroll */
+.feat-track{position:relative}
+@media (min-width:761px){
+  .feat-track.rolodex-on{height:300vh}
+  .feat-track.rolodex-on .feat-stage{position:sticky;top:0;height:100vh;overflow:hidden;
+    display:flex;flex-direction:column;align-items:center;padding-top:46px}
+  .feat-track.rolodex-on .feat-stack{position:relative;display:block;flex:1 1 auto;
+    width:100%;max-width:1240px;margin:0 auto}
+  .feat-track.rolodex-on .feat-row{position:absolute;top:0;left:50%;width:100%!important;
+    max-width:1180px;margin:0!important;opacity:1;transform-origin:top center;
+    backface-visibility:hidden;will-change:transform,opacity}
+}
 
 .feature-card{flex:1 1 0;min-width:0;container-type:inline-size;display:flex;align-items:stretch;gap:2.95cqw;
   outline:none;opacity:var(--o,1);transition:opacity .25s ease}
