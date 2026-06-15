@@ -235,7 +235,7 @@ body.page-light{background:#fff}
 .stripes.light.flip span:nth-child(3){background:var(--red)}
 
 /* hero: photo bg, navy gradient, Red Hat Display headline, overlapping dashboard */
-.why-hero{position:relative;height:660px;background:#05060c url('assets/why-hero-bg.png') center/cover no-repeat;padding-top:94px}
+.why-hero{position:relative;min-height:440px;background:#05060c url('assets/why-hero-bg.png') center/cover no-repeat;padding:104px 0 80px}
 .why-hero::before{content:"";position:absolute;inset:0;
   background:linear-gradient(90deg,#0a1225 24%,rgba(10,18,37,.5) 62%,rgba(10,18,37,.35) 100%),
              linear-gradient(0deg,#0a1225 0,rgba(10,18,37,0) 65%)}
@@ -246,11 +246,18 @@ body.page-light{background:#fff}
 .why-h1 .dim{color:rgba(255,255,255,.5)}
 .why-h1 .lit{color:rgba(255,255,255,.9)}
 .why-h1 .by{margin-top:70px}
-.why-dash{width:988px;max-width:88%;margin:128px auto 0;border-radius:14px;
-  box-shadow:0 4px 6.3px 3px rgba(0,0,0,.25);position:relative;z-index:5}
+/* testimonial card overlapping the hero/story seam (replaces the dashboard shot) */
+.why-quote{position:relative;z-index:5;max-width:860px;margin:-150px auto 100px;
+  background:#fff;border:1px solid #e4e8f1;border-radius:18px;
+  box-shadow:0 30px 64px rgba(10,18,37,.3);padding:46px 58px 44px}
+.wq-mark{display:block;font-family:var(--display);font-size:84px;line-height:.7;color:var(--red);height:50px;user-select:none}
+.wq-text{font-family:var(--body);font-weight:500;font-size:21px;line-height:1.55;color:var(--navy2);margin:0}
+.wq-cite{display:block;margin-top:28px}
+.wq-name{display:block;font-family:"Red Hat Display",var(--display);font-weight:900;font-size:32px;color:var(--navy2);line-height:1.1}
+.wq-title{display:block;font-size:18px;color:#5d6a86;margin-top:5px}
 
 /* the story */
-.why-story{background:#fff;color:var(--navy2);padding:364px 0 120px}
+.why-story{background:#fff;color:var(--navy2);padding:0 0 120px}
 .story-grid{max-width:1324px;margin:0 auto;padding:0 var(--pad);
   display:grid;grid-template-columns:minmax(0,479px) minmax(0,599px);justify-content:space-between;gap:60px}
 .story-copy h2{font-size:70px;color:var(--navy2);margin-bottom:46px}
@@ -591,11 +598,10 @@ body.page-light{background:#fff}
 @media (max-width:1100px){
   :root{--pad:40px}
   .hero h1{font-size:56px}
-  .why-hero{height:auto;padding-bottom:64px}
+  .why-hero{padding-bottom:64px}
   .why-h1{font-size:54px}
   .why-h1 .by{margin-top:54px}
-  .why-dash{margin:64px auto 0}
-  .why-story{padding-top:90px}
+  .why-quote{margin:-110px auto 72px;max-width:90%}
   .story-photo{margin-top:0}
   .story-copy h2,.focus-title{font-size:54px}
   .story-grid{grid-template-columns:1fr;gap:46px}
@@ -701,11 +707,14 @@ body.page-light{background:#fff}
   .cta-copy h2{font-size:34px}
   .footer-inner{flex-direction:column;align-items:flex-start;gap:22px}
   .foot-nav{text-align:left}
-  .why-hero{padding-top:48px;padding-bottom:44px}
+  .why-hero{padding-top:48px;padding-bottom:40px;min-height:0}
   .why-h1{font-size:36px;gap:10px}
   .why-h1 .by{margin-top:36px}
-  .why-dash{margin:40px auto 0;max-width:94%}
-  .why-story{padding:56px 0 60px}
+  .why-quote{margin:-70px auto 56px;max-width:92%;padding:30px 26px 28px}
+  .wq-text{font-size:17px}
+  .wq-name{font-size:26px}
+  .wq-title{font-size:16px}
+  .why-story{padding:0 0 56px}
   .story-photo{height:auto}
   .story-copy h2,.focus-title{font-size:38px}
   .story-copy h2{margin-bottom:24px}
