@@ -102,12 +102,18 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .icon-col p{font-size:18px;line-height:1.4;color:#41506f;font-family:var(--body)}
 
 /* ===== features + integrations (dark) ===== */
-.features{background:var(--navy) url('assets/space-bg.png') center top/cover no-repeat;padding:72px 0 84px}
+.features{padding:72px 0 84px;
+  background:
+    radial-gradient(120% 55% at 50% -2%, rgba(40,62,116,.45) 0%, rgba(10,18,37,0) 52%),
+    linear-gradient(180deg, rgba(10,18,37,.42) 0%, rgba(10,18,37,.74) 58%, #0a1225 100%),
+    #06080f url('assets/space-bg.png') center/cover no-repeat}
 .section-title{font-size:42px;text-align:center;margin-bottom:40px}
 /* receding "stack" of feature cards: each row narrower (converging) + fainter */
 .feat-stack{position:relative;max-width:1388px;width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center}
-.feat-star{position:absolute;left:50%;top:39%;transform:translate(-50%,-50%);
-  width:clamp(38px,4.6vw,72px);height:auto;filter:invert(64%);opacity:.9;pointer-events:none;z-index:1}
+.feat-star{position:absolute;left:50%;transform:translate(-50%,-50%);
+  height:auto;filter:invert(64%);pointer-events:none;z-index:1}
+.feat-star.s1{top:39%;width:clamp(38px,4.6vw,72px);opacity:.9}
+.feat-star.s2{top:72%;width:clamp(26px,3.2vw,50px);opacity:.6}
 .feat-row{display:flex;justify-content:center;gap:clamp(12px,2.3vw,32px);margin-bottom:clamp(8px,1.4vw,20px)}
 .feat-row.r1{width:100%}
 .feat-row.r2{width:82.7%}
@@ -116,11 +122,11 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .feat-row.r5{width:53.3%}
 .feat-row.r6{width:44.4%;margin-bottom:0}
 .feat-row.r1{--o:1}
-.feat-row.r2{--o:.84}
-.feat-row.r3{--o:.62}
-.feat-row.r4{--o:.46}
-.feat-row.r5{--o:.33}
-.feat-row.r6{--o:.23}
+.feat-row.r2{--o:.8}
+.feat-row.r3{--o:.55}
+.feat-row.r4{--o:.36}
+.feat-row.r5{--o:.2}
+.feat-row.r6{--o:.1}
 
 .feature-card{flex:1 1 0;min-width:0;container-type:inline-size;display:flex;align-items:stretch;gap:2.95cqw;
   outline:none;opacity:var(--o,1);transition:opacity .25s ease}
