@@ -88,9 +88,11 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .problem .lead strong{color:var(--navy)}
 /* overlapping app-screenshot cluster (shares .shot-cluster/.cluster with LTL) */
 .prob-shots{position:relative;margin:48px 0 56px}
-/* faded texture filling the whole problem section */
-.prob-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  opacity:.09;z-index:0;pointer-events:none}
+/* faded texture band behind the title + screenshots (fades out before the columns) */
+.prob-backdrop{position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:100%;max-width:1599px;height:660px;object-fit:cover;opacity:.1;z-index:0;pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 64% 58% at 50% 48%, #000 40%, transparent 100%);
+          mask-image:radial-gradient(ellipse 64% 58% at 50% 48%, #000 40%, transparent 100%)}
 /* four value columns with vertical dividers + foam-finger icons */
 .icon-row{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
 .icon-col{text-align:center;padding:0 30px;position:relative}
