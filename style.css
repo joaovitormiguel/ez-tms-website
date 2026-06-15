@@ -410,6 +410,9 @@ body.page-light{background:#fff}
 .carrier-grid .logo-box{width:200px;height:84px;display:flex;align-items:center;justify-content:center}
 .carrier-more{font-family:"Red Hat Display",var(--display);font-weight:900;font-size:24px;
   text-transform:uppercase;color:var(--red);margin-top:26px}
+/* LTL portal reuse of the integrations blocks on a white section */
+.ltl-integrations{background:#fff;color:var(--navy2)}
+.ltl-intro{font-size:22px;letter-spacing:.05em;color:var(--navy2);max-width:760px;margin:0 0 54px}
 .carrier-grid .logo-box .h64{width:auto;height:64px}
 .carrier-grid .logo-box .h46{width:auto;height:46px}
 .no-fees{background:var(--navy);padding:84px 120px;color:#fff}
