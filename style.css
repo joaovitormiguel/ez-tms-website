@@ -152,8 +152,8 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .testimonial{position:relative;overflow:visible;background:var(--white);color:var(--navy);padding:92px 0 104px}
 .testimonial-wrap{display:flex;align-items:center;gap:0;padding-left:30%}
 /* foam finger — large, bleeds off the left and pokes up into the section above */
-.test-finger{position:absolute;left:-5%;top:0;width:45%;max-width:720px;height:auto;
-  transform:translateY(-26%);z-index:5;pointer-events:none;
+.test-finger{position:absolute;left:-9%;top:0;width:39%;max-width:624px;height:auto;
+  transform:translateY(-24%);z-index:5;pointer-events:none;
   filter:drop-shadow(0 14px 22px rgba(0,0,0,.2))}
 /* slider — takes remaining space */
 .test-slider{flex:1;min-width:0;overflow:hidden}
