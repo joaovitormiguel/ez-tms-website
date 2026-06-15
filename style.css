@@ -71,6 +71,9 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
   opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
 .nav-dd-menu a{display:block;white-space:nowrap;padding:10px 24px;font-size:13px;color:#e7ecf7}
 .nav-dd-menu a:hover{color:var(--red);background:rgba(255,255,255,.05)}
+/* keep menu items light even inside the white (light) header */
+.site-header.light .nav .nav-dd-menu a{color:#e7ecf7}
+.site-header.light .nav .nav-dd-menu a:hover{color:var(--red)}
 
 /* ===== hero ===== */
 .hero{position:relative;min-height:584px;display:flex;align-items:center;overflow:hidden;
