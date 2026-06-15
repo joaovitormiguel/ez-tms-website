@@ -366,10 +366,10 @@ body.page-light{background:#fff}
 .lg-title{font-size:78px;line-height:84px}
 .edi-sub{font-size:22px;color:#fff;max-width:720px}
 .edi-photo{width:1120px;max-width:92%;height:366px;object-fit:cover;border:2px solid var(--red);border-radius:10px}
-.edi-lockup{display:flex;align-items:center;gap:16px}
-.edi-lockup .lk-ez{height:90px;width:auto}
-.edi-lockup .lk-plus{font-size:58px;line-height:62px}
-.edi-lockup .lk-bf{height:59px;width:auto}
+.edi-lockup{display:flex;align-items:center;gap:26px}
+.edi-lockup .lk-ez{height:46px;width:auto}
+.edi-lockup .lk-plus{font-size:40px;line-height:1}
+.edi-lockup .lk-bf{height:62px;width:auto}
 .edi-matters{background:var(--navy);display:flex;align-items:center;justify-content:center;gap:80px;
   min-height:360px;padding:20px 64px 40px}
 .em-copy h2{font-family:"Red Hat Display",var(--display);font-weight:900;font-size:58px;line-height:62px;color:#fff}
@@ -761,9 +761,10 @@ body.page-light{background:#fff}
   .lg-title{font-size:36px}
   .edi-sub{font-size:17px;padding:0 var(--pad)}
   .edi-photo{height:200px}
-  .edi-lockup .lk-ez{height:56px}
-  .edi-lockup .lk-plus{font-size:36px}
-  .edi-lockup .lk-bf{height:36px}
+  .edi-lockup{gap:18px}
+  .edi-lockup .lk-ez{height:34px}
+  .edi-lockup .lk-plus{font-size:30px}
+  .edi-lockup .lk-bf{height:46px}
   .em-copy h2{font-size:34px}
   .em-copy p{font-size:17px}
   .stat-box{width:100%;height:220px}
