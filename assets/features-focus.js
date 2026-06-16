@@ -7,37 +7,60 @@
   var rows = Array.prototype.slice.call(stack.querySelectorAll('.feat-row'));
   if (!rows.length) return;
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  /* inject the slanted red outline as an inline SVG (non-scaling-stroke keeps the
-     stroke a constant width on every edge — a stretched background SVG does not) */
   var NS = 'http://www.w3.org/2000/svg';
-  var D = 'M0 1.5L347.726 0.003C359.222 0.194 369.461 7.406 373.492 18.214L407.92 110.51L435.103 183.383C441.918 201.654 428.434 221.124 408.933 221.169L0 221.5';
-  Array.prototype.forEach.call(stack.querySelectorAll('.feature-card'), function (card) {
-    var body = card.querySelector('.body');
-    if (!body || body.querySelector('.slant-svg')) return;
+
+  /* The slanted red outline is drawn in the body's REAL pixel space (viewBox = its
+     measured size), so it never stretches: corners stay circular and the stroke is a
+     uniform width on every edge regardless of the card's aspect ratio. We redraw on
+     resize. Open on the left; a single clean slant leans the right edge outward. */
+  function buildPath(W, H) {
+    var i = 1.5;                       // stroke inset so the line isn't clipped
+    var r = Math.min(20, (H - 2 * i) / 2);
+    var lean = H * 0.17;               // how far the right edge leans out, top→bottom
+    var xb = W - i;                    // bottom-right x
+    var xt = xb - lean;                // top-right x
+    var dx = xb - xt, dy = (H - i) - i;
+    var len = Math.sqrt(dx * dx + dy * dy) || 1;
+    var ux = dx / len, uy = dy / len;  // unit vector down the slant
+    var bx = xt + ux * r, by = i + uy * r;            // top corner, after the round
+    var ex = xb - ux * r, ey = (H - i) - uy * r;      // bottom corner, before the round
+    return 'M0 ' + i +
+           ' L' + (xt - r) + ' ' + i +
+           ' Q' + xt + ' ' + i + ' ' + bx + ' ' + by +
+           ' L' + ex + ' ' + ey +
+           ' Q' + xb + ' ' + (H - i) + ' ' + (xb - r) + ' ' + (H - i) +
+           ' L0 ' + (H - i);
+  }
+
+  var bodies = Array.prototype.slice.call(stack.querySelectorAll('.feature-card .body'));
+  bodies.forEach(function (body) {
     var svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('class', 'slant-svg');
-    svg.setAttribute('preserveAspectRatio', 'none');
-    svg.setAttribute('viewBox', '0 0 436.893 222.111');
     svg.setAttribute('fill', 'none');
     svg.setAttribute('aria-hidden', 'true');
+    var holder = document.createElementNS(NS, 'g');     // mirrored for .mir cards
     var path = document.createElementNS(NS, 'path');
-    path.setAttribute('d', D);
     path.setAttribute('stroke', '#EF151A');
-    path.setAttribute('stroke-width', '2.5');
+    path.setAttribute('stroke-width', '2');
     path.setAttribute('stroke-linejoin', 'round');
     path.setAttribute('stroke-linecap', 'round');
-    path.setAttribute('vector-effect', 'non-scaling-stroke');
-    if (card.classList.contains('mir')) {
-      var g = document.createElementNS(NS, 'g');
-      g.setAttribute('transform', 'translate(436.893,0) scale(-1,1)');
-      g.appendChild(path);
-      svg.appendChild(g);
-    } else {
-      svg.appendChild(path);
-    }
+    holder.appendChild(path);
+    svg.appendChild(holder);
     body.insertBefore(svg, body.firstChild);
+    body._slant = { svg: svg, holder: holder, path: path,
+                    mir: body.closest('.feature-card').classList.contains('mir') };
   });
+
+  function redraw() {
+    bodies.forEach(function (body) {
+      var s = body._slant;
+      var W = body.offsetWidth, H = body.offsetHeight;   // layout size, ignores scale()
+      if (!W || !H) return;
+      s.svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+      s.path.setAttribute('d', buildPath(W, H));
+      s.holder.setAttribute('transform', s.mir ? 'translate(' + W + ',0) scale(-1,1)' : '');
+    });
+  }
 
   function update() {
     if (reduce.matches) {
@@ -66,7 +89,9 @@
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
+  window.addEventListener('resize', function () { redraw(); onScroll(); });
+  window.addEventListener('load', redraw);
   (reduce.addEventListener ? reduce.addEventListener('change', update) : reduce.addListener(update));
+  redraw();
   update();
 })();

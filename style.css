@@ -118,7 +118,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .feat-stack.focus-ready .feat-row{opacity:.3;transform:scale(.955)}
 .feat-stack.focus-ready .feat-row.in-focus{opacity:1;transform:scale(1)}
 
-.feature-card{flex:1 1 0;min-width:0;container-type:inline-size;display:flex;align-items:stretch;gap:2.95cqw;outline:none}
+.feature-card{flex:1 1 0;min-width:0;container-type:inline-size;display:flex;align-items:stretch;gap:clamp(8px,1.1vw,16px);outline:none}
 .feature-card .ic{flex:0 0 32.6cqw;height:32.6cqw;border-radius:3cqw;
   background:linear-gradient(155deg,#1b2c5e,#101f44);display:flex;align-items:center;justify-content:center;
   border:1px solid rgba(255,255,255,.1);box-shadow:0 0.6cqw 1.9cqw 0.7cqw rgba(0,0,0,.33);
