@@ -228,16 +228,14 @@ body.page-light{background:#fff}
   background:linear-gradient(90deg,#0a1225 24%,rgba(10,18,37,.5) 62%,rgba(10,18,37,.35) 100%),
              linear-gradient(0deg,#0a1225 0,rgba(10,18,37,0) 65%)}
 .why-hero-inner{position:relative;z-index:2}
-.why-h1{display:flex;justify-content:center;align-items:flex-start;gap:18px;
-  font-family:"Red Hat Display",var(--display);font-weight:900;font-size:70px;line-height:1;letter-spacing:0}
-.why-h1 .stack{display:flex;flex-direction:column;text-align:right}
-.why-h1 .dim{color:rgba(255,255,255,.5)}
-.why-h1 .lit{color:rgba(255,255,255,.9)}
-.why-h1 .verb{display:block;color:rgba(255,255,255,.42);transition:color .45s ease}
-.why-h1 .verb.is-active{color:#fff;animation:verbflip .55s ease}
-@keyframes verbflip{from{transform:translateY(-42%);opacity:.25}to{transform:translateY(0);opacity:1}}
-@media (prefers-reduced-motion:reduce){.why-h1 .verb.is-active{animation:none}}
-.why-h1 .by{margin-top:70px}
+.why-h1{display:flex;flex-direction:column;align-items:center;text-align:center;
+  font-family:"Red Hat Display",var(--display);font-weight:900;font-size:70px;line-height:1.04;letter-spacing:0}
+/* single rolodex slot: one verb visible, the track slides up one verb at a time */
+.why-h1 .verb-slot{display:block;height:1.04em;overflow:hidden}
+.why-h1 .verb-track{display:flex;flex-direction:column;will-change:transform}
+.why-h1 .verb{display:flex;align-items:center;justify-content:center;height:1.04em;line-height:1;color:#fff}
+.why-h1 .by{margin-top:2px}
+@media (prefers-reduced-motion:reduce){.why-h1 .verb-track{transform:none!important}}
 /* testimonial card overlapping the hero/story seam (replaces the dashboard shot) */
 .why-quote{position:relative;z-index:5;max-width:860px;margin:-150px auto 100px;
   background:#fff;border:1px solid #e4e8f1;border-radius:18px;
@@ -620,7 +618,7 @@ body.page-light{background:#fff}
   .hero h1{font-size:56px}
   .why-hero{padding-bottom:64px}
   .why-h1{font-size:54px}
-  .why-h1 .by{margin-top:54px}
+  .why-h1 .by{margin-top:2px}
   .why-quote{margin:-110px auto 72px;max-width:90%}
   .story-photo{margin-top:0}
   .story-copy h2,.focus-title{font-size:54px}
@@ -724,8 +722,8 @@ body.page-light{background:#fff}
   .footer-inner{flex-direction:column;align-items:flex-start;gap:22px}
   .foot-nav{text-align:left}
   .why-hero{padding-top:48px;padding-bottom:40px;min-height:0}
-  .why-h1{font-size:36px;gap:10px}
-  .why-h1 .by{margin-top:36px}
+  .why-h1{font-size:36px}
+  .why-h1 .by{margin-top:2px}
   .why-quote{margin:-70px auto 56px;max-width:92%;padding:30px 26px 28px}
   .wq-text{font-size:17px}
   .wq-name{font-size:26px}
