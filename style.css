@@ -378,14 +378,24 @@ body.page-light{background:#fff}
   box-shadow:0 4px 30px rgba(0,0,0,.25);flex:0 0 auto}
 .stat-box img{width:100%;height:100%;object-fit:cover}
 /* skewed "what you get" cards (svg outlines + overlaid text) */
-.edi-cards{position:relative;width:1306px;max-width:100%;height:372px;margin:0 auto;
-  background:url('assets/edi-cards.svg') center/contain no-repeat}
-.edi-card{position:absolute;top:68px;width:340px;text-align:left}
-.edi-card:nth-child(1){left:33px}
-.edi-card:nth-child(2){left:488px}
-.edi-card:nth-child(3){left:950px}
-.edi-card h3{font-size:32px;color:var(--navy2);line-height:1}
-.edi-card p{position:absolute;top:138px;font-size:22px;color:var(--navy2);max-width:339px}
+.edi-cards{display:flex;justify-content:center;gap:62px;width:1306px;max-width:100%;margin:0 auto}
+/* default: plain rounded box (like the middle one) */
+.edi-card{flex:1 1 0;max-width:396px;min-height:330px;display:flex;flex-direction:column;
+  text-align:left;padding:50px 40px;outline:none;
+  background:#fff;border:1.5px solid #d6dbe8;border-radius:24px;
+  transition:background .25s ease,border-color .25s ease,border-radius .25s ease}
+.edi-card h3{font-size:32px;color:var(--navy2);line-height:1.05}
+.edi-card p{font-size:22px;color:var(--navy2);max-width:339px;margin-top:auto;padding-top:40px}
+/* hover/focus: turn red (middle stays a rounded box) */
+.edi-card:hover,.edi-card:focus-visible{border-color:var(--red);background:rgba(239,21,26,.06)}
+/* hover/focus: slant cards adopt their red slanted shape */
+.edi-card.slant-l:hover,.edi-card.slant-l:focus-visible,
+.edi-card.slant-r:hover,.edi-card.slant-r:focus-visible{
+  border-color:transparent;border-radius:0;background:transparent}
+.edi-card.slant-l:hover,.edi-card.slant-l:focus-visible{
+  background:url('assets/edi-slant-left.svg') center/100% 100% no-repeat}
+.edi-card.slant-r:hover,.edi-card.slant-r:focus-visible{
+  background:url('assets/edi-slant-right.svg') center/100% 100% no-repeat}
 .cta-buttons{display:flex;gap:30px;justify-content:center;align-items:center;margin-top:48px}
 .cta-buttons .btn-outline{margin-top:0}
 
@@ -635,11 +645,10 @@ body.page-light{background:#fff}
   .edi-hero{min-height:0;padding-bottom:48px}
   .edi-matters{flex-direction:column;gap:36px;padding:48px var(--pad)}
   .em-copy h2{font-size:44px;line-height:1.1}
-  .edi-cards{background:none;height:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;width:auto}
-  .edi-card{position:static;width:auto;border:1px solid rgba(24,41,84,.25);border-radius:24px;padding:28px}
-  .edi-card:nth-child(1){border-color:var(--red);background:rgba(239,21,26,.05)}
+  .edi-cards{gap:24px;width:auto}
+  .edi-card{min-height:280px;padding:32px 28px}
   .edi-card h3{font-size:26px}
-  .edi-card p{position:static;margin-top:16px;font-size:19px}
+  .edi-card p{font-size:19px;padding-top:28px}
   .int-inner{padding:80px var(--pad) 80px}
   .cat-head{font-size:32px}
   .no-fees{padding:56px var(--pad)}
@@ -768,7 +777,8 @@ body.page-light{background:#fff}
   .em-copy h2{font-size:34px}
   .em-copy p{font-size:17px}
   .stat-box{width:100%;height:220px}
-  .edi-cards{grid-template-columns:1fr}
+  .edi-cards{flex-direction:column;align-items:center}
+  .edi-card{width:100%;max-width:420px;min-height:0}
   .cta-buttons{flex-direction:column;gap:16px;margin-top:28px}
   .btn-solid.lg{font-size:13px;padding:12px 18px}
   .int-inner{padding:56px var(--pad)}
