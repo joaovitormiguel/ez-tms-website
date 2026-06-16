@@ -29,7 +29,38 @@
     }
   }
 
-  if (prev) prev.addEventListener('click', function () { go(i - 1); });
-  if (next) next.addEventListener('click', function () { go(i + 1); });
+  if (prev) prev.addEventListener('click', function () { go(i - 1); user(); });
+  if (next) next.addEventListener('click', function () { go(i + 1); user(); });
   if (n <= 1 && dotsBox) dotsBox.style.display = 'none';
+
+  // auto-advance (pauses on hover/focus and for ~10s after a manual interaction)
+  var DELAY = 5000, timer = null, paused = false;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  function tick() { if (!paused && !reduce.matches && n > 1) go(i + 1); }
+  function start() { stop(); if (n > 1) timer = setInterval(tick, DELAY); }
+  function stop() { if (timer) { clearInterval(timer); timer = null; } }
+  function user() { start(); } // restart the clock after a manual move
+  var box = track.closest('.shot-cluster') || track;
+  box.addEventListener('mouseenter', function () { paused = true; });
+  box.addEventListener('mouseleave', function () { paused = false; });
+  box.addEventListener('focusin', function () { paused = true; });
+  box.addEventListener('focusout', function () { paused = false; });
+  document.addEventListener('visibilitychange', function () { paused = document.hidden; });
+
+  // touch swipe
+  var x0 = null, y0 = null, dx = 0;
+  var vp = track.parentNode;
+  vp.addEventListener('touchstart', function (e) {
+    x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; dx = 0; paused = true;
+  }, { passive: true });
+  vp.addEventListener('touchmove', function (e) {
+    if (x0 === null) return;
+    dx = e.touches[0].clientX - x0;
+  }, { passive: true });
+  vp.addEventListener('touchend', function () {
+    if (x0 !== null && Math.abs(dx) > 40) { go(dx < 0 ? i + 1 : i - 1); user(); }
+    x0 = null; paused = false;
+  });
+
+  start();
 })();
