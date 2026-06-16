@@ -228,13 +228,14 @@ body.page-light{background:#fff}
   background:linear-gradient(90deg,#0a1225 24%,rgba(10,18,37,.5) 62%,rgba(10,18,37,.35) 100%),
              linear-gradient(0deg,#0a1225 0,rgba(10,18,37,0) 65%)}
 .why-hero-inner{position:relative;z-index:2}
-.why-h1{display:flex;flex-direction:column;align-items:center;text-align:center;
+.why-h1{display:flex;flex-direction:row;align-items:flex-end;justify-content:center;gap:.26em;
   font-family:"Red Hat Display",var(--display);font-weight:900;font-size:70px;line-height:1.04;letter-spacing:0}
-/* single rolodex slot: one verb visible, the track slides up one verb at a time */
-.why-h1 .verb-slot{display:block;height:1.04em;overflow:hidden}
+/* single rolodex slot inline before "by brokers."; auto width = widest verb so the
+   rest of the line never shifts as the verb rotates */
+.why-h1 .verb-slot{display:inline-block;height:1.04em;overflow:hidden}
 .why-h1 .verb-track{display:flex;flex-direction:column;will-change:transform}
-.why-h1 .verb{display:flex;align-items:center;justify-content:center;height:1.04em;line-height:1;color:#fff}
-.why-h1 .by{margin-top:2px}
+.why-h1 .verb{height:1.04em;line-height:1.04;white-space:nowrap;text-align:right;color:#fff}
+.why-h1 .by{line-height:1.04}
 @media (prefers-reduced-motion:reduce){.why-h1 .verb-track{transform:none!important}}
 /* testimonial card overlapping the hero/story seam (replaces the dashboard shot) */
 .why-quote{position:relative;z-index:5;max-width:860px;margin:-150px auto 100px;
