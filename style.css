@@ -108,7 +108,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .features{padding:72px 0 84px;
   background:
     radial-gradient(120% 55% at 50% -2%, rgba(40,62,116,.45) 0%, rgba(10,18,37,0) 52%),
-    linear-gradient(180deg, rgba(10,18,37,.42) 0%, rgba(10,18,37,.74) 58%, #0a1225 100%),
+    linear-gradient(180deg, rgba(10,18,37,.8) 0%, rgba(10,18,37,.92) 55%, #0a1225 100%),
     #06080f url('assets/space-bg.png') center/cover no-repeat}
 .section-title{font-size:42px;text-align:center;margin-bottom:54px}
 /* uniform stack; JS brings the row nearest viewport-center into focus as you scroll */
@@ -143,6 +143,15 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .int-sub strong{color:#fff}
 .logo-strip{display:flex;align-items:center;justify-content:center;gap:54px;flex-wrap:wrap;
   border:3px solid var(--red);border-radius:18px;padding:26px 40px;margin:0 auto 30px;max-width:1180px}
+.logo-strip{padding:22px 0;overflow:hidden}
+.marquee{overflow:hidden;width:100%;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:54px;width:max-content;animation:marquee 30s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track img{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1);flex:0 0 auto}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 .logo-strip img{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
 
 /* ===== testimonial ===== */
@@ -224,6 +233,10 @@ body.page-light{background:#fff}
 .why-h1 .stack{display:flex;flex-direction:column;text-align:right}
 .why-h1 .dim{color:rgba(255,255,255,.5)}
 .why-h1 .lit{color:rgba(255,255,255,.9)}
+.why-h1 .verb{display:block;color:rgba(255,255,255,.42);transition:color .45s ease}
+.why-h1 .verb.is-active{color:#fff;animation:verbflip .55s ease}
+@keyframes verbflip{from{transform:translateY(-42%);opacity:.25}to{transform:translateY(0);opacity:1}}
+@media (prefers-reduced-motion:reduce){.why-h1 .verb.is-active{animation:none}}
 .why-h1 .by{margin-top:70px}
 /* testimonial card overlapping the hero/story seam (replaces the dashboard shot) */
 .why-quote{position:relative;z-index:5;max-width:860px;margin:-150px auto 100px;
@@ -390,11 +403,8 @@ body.page-light{background:#fff}
 
 /* integrations page */
 .page-hero.short{height:601px}
-.int-sheet{position:relative;margin-top:-60px;z-index:3;
-  background:url('assets/integrations/sheet.svg') top center/100% 100% no-repeat}
-.int-sheet::before{content:"";position:absolute;top:0;left:0;right:0;height:62.5px;
-  background:url('assets/integrations/sheet-edge.svg') top center/100% 100% no-repeat;pointer-events:none}
-.int-inner{padding:104px 120px 110px}
+.int-sheet{position:relative;background:#fff;border-top:4px solid var(--red)}
+.int-inner{padding:88px 120px 110px}
 .cat-head{font-family:"Red Hat Display",var(--display);font-weight:900;font-size:40px;
   text-transform:uppercase;color:var(--navy2);margin-bottom:38px}
 .cats{display:flex;flex-direction:column;gap:30px;margin-bottom:96px}
@@ -415,7 +425,7 @@ body.page-light{background:#fff}
   text-transform:uppercase;color:var(--red);margin-top:26px}
 /* LTL portal reuse of the integrations blocks on a white section */
 .ltl-integrations{background:#fff;color:var(--navy2)}
-.ltl-intro{font-size:22px;letter-spacing:.05em;color:var(--navy2);max-width:760px;margin:0 auto 54px;text-align:center}
+.ltl-intro{font-family:"Red Hat Display",var(--display);font-weight:900;font-size:clamp(24px,3.4vw,40px);line-height:1.1;letter-spacing:0;text-transform:none;color:var(--navy2);max-width:820px;margin:0 auto 54px;text-align:center}
 .ltl-integrations .carrier-more{text-align:center}
 .carrier-grid .logo-box .h64{width:auto;height:64px}
 .carrier-grid .logo-box .h46{width:auto;height:46px}
