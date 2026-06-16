@@ -115,8 +115,11 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .feat-stack{max-width:1180px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:30px}
 .feat-row{display:flex;justify-content:center;gap:clamp(12px,2.3vw,30px);width:100%;
   transition:opacity .5s ease,transform .5s ease}
-.feat-stack.focus-ready .feat-row{opacity:.3;transform:scale(.955)}
+.feat-stack.focus-ready .feat-row{opacity:.3;transform:scale(.9)}
 .feat-stack.focus-ready .feat-row.in-focus{opacity:1;transform:scale(1)}
+/* gray sparkle divider centered between each set of four cards */
+.feat-star{display:flex;align-items:center;justify-content:center;color:#8b94ad;margin:2px 0}
+.feat-star svg{width:34px;height:34px;filter:drop-shadow(0 0 12px rgba(160,172,205,.22))}
 
 .feature-card{flex:1 1 0;min-width:0;container-type:inline-size;display:flex;align-items:stretch;gap:clamp(8px,1.1vw,16px);outline:none}
 .feature-card .ic{flex:0 0 32.6cqw;height:32.6cqw;border-radius:3cqw;

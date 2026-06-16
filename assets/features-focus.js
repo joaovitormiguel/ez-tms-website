@@ -1,6 +1,6 @@
 /* Feature stack: simple scroll focus. As you scroll, whichever row is nearest the
    vertical center of the viewport becomes "in focus" (bright, full scale); the others
-   ease back (dimmed, slightly smaller). No scroll hijacking. */
+   ease back (dimmed, shrunk). No scroll hijacking. */
 (function () {
   var stack = document.getElementById('featStack');
   if (!stack) return;
@@ -11,45 +11,62 @@
 
   /* The slanted red outline is drawn in the body's REAL pixel space (viewBox = its
      measured size), so it never stretches: corners stay circular and the stroke is a
-     uniform width on every edge regardless of the card's aspect ratio. We redraw on
-     resize. Open on the left; a single clean slant leans the right edge outward. */
-  function buildPath(W, H) {
+     uniform width on every edge regardless of the card's aspect ratio. Rows alternate
+     the slant direction (peak at the top, then peak at the bottom, …) and .mir cards
+     mirror left↔right, so each row reads as a symmetric pair around the center aisle.
+     Open on the left; the right edge leans. Redrawn on resize. */
+  function buildPath(W, H, topWide) {
     var i = 1.5;                       // stroke inset so the line isn't clipped
     var r = Math.min(20, (H - 2 * i) / 2);
-    var lean = H * 0.17;               // how far the right edge leans out, top→bottom
-    var xb = W - i;                    // bottom-right x
-    var xt = xb - lean;                // top-right x
-    var dx = xb - xt, dy = (H - i) - i;
+    var lean = H * 0.17;               // horizontal lean of the slanted edge
+    var xTop = topWide ? (W - i) : (W - i - lean);   // top-right corner x
+    var xBot = topWide ? (W - i - lean) : (W - i);   // bottom-right corner x
+    var dx = xBot - xTop, dy = (H - i) - i;
     var len = Math.sqrt(dx * dx + dy * dy) || 1;
-    var ux = dx / len, uy = dy / len;  // unit vector down the slant
-    var bx = xt + ux * r, by = i + uy * r;            // top corner, after the round
-    var ex = xb - ux * r, ey = (H - i) - uy * r;      // bottom corner, before the round
+    var ux = dx / len, uy = dy / len;                // unit vector down the slant
+    var bx = xTop + ux * r, by = i + uy * r;         // top corner, after the round
+    var ex = xBot - ux * r, ey = (H - i) - uy * r;   // bottom corner, before the round
     return 'M0 ' + i +
-           ' L' + (xt - r) + ' ' + i +
-           ' Q' + xt + ' ' + i + ' ' + bx + ' ' + by +
+           ' L' + (xTop - r) + ' ' + i +
+           ' Q' + xTop + ' ' + i + ' ' + bx + ' ' + by +
            ' L' + ex + ' ' + ey +
-           ' Q' + xb + ' ' + (H - i) + ' ' + (xb - r) + ' ' + (H - i) +
+           ' Q' + xBot + ' ' + (H - i) + ' ' + (xBot - r) + ' ' + (H - i) +
            ' L0 ' + (H - i);
   }
 
-  var bodies = Array.prototype.slice.call(stack.querySelectorAll('.feature-card .body'));
-  bodies.forEach(function (body) {
-    var svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('class', 'slant-svg');
-    svg.setAttribute('fill', 'none');
-    svg.setAttribute('aria-hidden', 'true');
-    var holder = document.createElementNS(NS, 'g');     // mirrored for .mir cards
-    var path = document.createElementNS(NS, 'path');
-    path.setAttribute('stroke', '#EF151A');
-    path.setAttribute('stroke-width', '2');
-    path.setAttribute('stroke-linejoin', 'round');
-    path.setAttribute('stroke-linecap', 'round');
-    holder.appendChild(path);
-    svg.appendChild(holder);
-    body.insertBefore(svg, body.firstChild);
-    body._slant = { svg: svg, holder: holder, path: path,
-                    mir: body.closest('.feature-card').classList.contains('mir') };
+  var bodies = [];
+  rows.forEach(function (row, ri) {
+    var topWide = (ri % 2 === 0);      // alternate the slant peak row by row
+    Array.prototype.forEach.call(row.querySelectorAll('.feature-card .body'), function (body) {
+      var svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('class', 'slant-svg');
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('aria-hidden', 'true');
+      var holder = document.createElementNS(NS, 'g');     // mirrored for .mir cards
+      var path = document.createElementNS(NS, 'path');
+      path.setAttribute('stroke', '#EF151A');
+      path.setAttribute('stroke-width', '2');
+      path.setAttribute('stroke-linejoin', 'round');
+      path.setAttribute('stroke-linecap', 'round');
+      holder.appendChild(path);
+      svg.appendChild(holder);
+      body.insertBefore(svg, body.firstChild);
+      body._slant = { svg: svg, holder: holder, path: path, topWide: topWide,
+                      mir: body.closest('.feature-card').classList.contains('mir') };
+      bodies.push(body);
+    });
   });
+
+  /* gray sparkle divider centered in the aisle, in the middle of every set of four
+     cards (i.e. between the two rows of each pair) */
+  var STAR = 'M50 2 C53 33 67 47 98 50 C67 53 53 67 50 98 C47 67 33 53 2 50 C33 47 47 33 50 2 Z';
+  for (var ri = 0; ri + 1 < rows.length; ri += 2) {
+    var star = document.createElement('div');
+    star.className = 'feat-star';
+    star.setAttribute('aria-hidden', 'true');
+    star.innerHTML = '<svg viewBox="0 0 100 100"><path d="' + STAR + '" fill="currentColor"/></svg>';
+    rows[ri].insertAdjacentElement('afterend', star);
+  }
 
   function redraw() {
     bodies.forEach(function (body) {
@@ -57,7 +74,7 @@
       var W = body.offsetWidth, H = body.offsetHeight;   // layout size, ignores scale()
       if (!W || !H) return;
       s.svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-      s.path.setAttribute('d', buildPath(W, H));
+      s.path.setAttribute('d', buildPath(W, H, s.topWide));
       s.holder.setAttribute('transform', s.mir ? 'translate(' + W + ',0) scale(-1,1)' : '');
     });
   }
