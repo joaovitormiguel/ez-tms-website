@@ -380,22 +380,30 @@ body.page-light{background:#fff}
 /* skewed "what you get" cards (svg outlines + overlaid text) */
 .edi-cards{display:flex;justify-content:center;gap:62px;width:1306px;max-width:100%;margin:0 auto}
 /* default: plain rounded box (like the middle one) */
-.edi-card{flex:1 1 0;max-width:396px;min-height:330px;display:flex;flex-direction:column;
-  text-align:left;padding:50px 40px;outline:none;
-  background:#fff;border:1.5px solid #d6dbe8;border-radius:24px;
-  transition:background .25s ease,border-color .25s ease,border-radius .25s ease}
+.edi-card{position:relative;flex:1 1 0;max-width:396px;min-height:330px;display:flex;flex-direction:column;
+  text-align:left;padding:50px 40px;outline:none;background-color:#fff;
+  border:1.5px solid #d6dbe8;border-radius:24px;
+  --ease:cubic-bezier(.34,.02,.2,1);
+  transition:border-color .4s var(--ease),border-radius .45s var(--ease),
+    background-color .4s ease,transform .45s var(--ease)}
+.edi-card > *{position:relative;z-index:1}
+/* slanted red shape, pre-loaded and faded in on hover for a smooth cross-fade */
+.edi-card::before{content:"";position:absolute;inset:0;z-index:0;opacity:0;pointer-events:none;
+  background-size:100% 100%;background-repeat:no-repeat;transition:opacity .4s var(--ease)}
+.edi-card.slant-l::before{background-image:url('assets/edi-slant-left.svg')}
+.edi-card.slant-r::before{background-image:url('assets/edi-slant-right.svg')}
 .edi-card h3{font-size:32px;color:var(--navy2);line-height:1.05}
 .edi-card p{font-size:22px;color:var(--navy2);max-width:339px;margin-top:auto;padding-top:40px}
-/* hover/focus: turn red (middle stays a rounded box) */
-.edi-card:hover,.edi-card:focus-visible{border-color:var(--red);background:rgba(239,21,26,.06)}
-/* hover/focus: slant cards adopt their red slanted shape */
+/* hover/focus: lift + turn red (middle stays a rounded box) */
+.edi-card:hover,.edi-card:focus-visible{transform:translateY(-7px);
+  border-color:var(--red);background-color:rgba(239,21,26,.06)}
+/* slant cards: dissolve into their red slanted shape */
 .edi-card.slant-l:hover,.edi-card.slant-l:focus-visible,
 .edi-card.slant-r:hover,.edi-card.slant-r:focus-visible{
-  border-color:transparent;border-radius:0;background:transparent}
-.edi-card.slant-l:hover,.edi-card.slant-l:focus-visible{
-  background:url('assets/edi-slant-left.svg') center/100% 100% no-repeat}
-.edi-card.slant-r:hover,.edi-card.slant-r:focus-visible{
-  background:url('assets/edi-slant-right.svg') center/100% 100% no-repeat}
+  border-color:transparent;border-radius:0;background-color:transparent}
+.edi-card.slant-l:hover::before,.edi-card.slant-l:focus-visible::before,
+.edi-card.slant-r:hover::before,.edi-card.slant-r:focus-visible::before{opacity:1}
+@media (prefers-reduced-motion:reduce){.edi-card,.edi-card::before{transition:none}}
 .cta-buttons{display:flex;gap:30px;justify-content:center;align-items:center;margin-top:48px}
 .cta-buttons .btn-outline{margin-top:0}
 
