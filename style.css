@@ -112,13 +112,15 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
     #06080f url('assets/space-bg.png') center/cover no-repeat}
 .section-title{font-size:42px;text-align:center;margin-bottom:54px}
 /* uniform stack; JS brings the row nearest viewport-center into focus as you scroll */
-.feat-stack{max-width:1180px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:30px}
+.feat-stack{max-width:1180px;width:100%;margin:0 auto;display:flex;flex-direction:column;gap:30px;position:relative}
 .feat-row{display:flex;justify-content:center;gap:clamp(12px,2.3vw,30px);width:100%;
   transition:opacity .5s ease,transform .5s ease}
 .feat-stack.focus-ready .feat-row{opacity:.3;transform:scale(.9)}
 .feat-stack.focus-ready .feat-row.in-focus{opacity:1;transform:scale(1)}
-/* gray sparkle divider centered between each set of four cards */
-.feat-star{display:flex;align-items:center;justify-content:center;color:#8b94ad;margin:2px 0}
+/* gray sparkle divider centered in the aisle between each set of four cards;
+   absolutely positioned (JS sets top) so it adds no vertical space */
+.feat-star{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);
+  display:flex;align-items:center;justify-content:center;color:#8b94ad;pointer-events:none;z-index:3}
 .feat-star svg{width:34px;height:34px;filter:drop-shadow(0 0 12px rgba(160,172,205,.22))}
 
 .feature-card{flex:1 1 0;min-width:0;container-type:inline-size;display:flex;align-items:stretch;gap:clamp(8px,1.1vw,16px);outline:none}
@@ -705,6 +707,8 @@ body.page-light{background:#fff}
   .feature-card .ic img{height:46px;max-width:50px}
   .feature-card .body{height:auto;min-height:84px;border:2px solid var(--red);border-radius:12px;
     padding:14px 18px;background:rgba(11,19,42,.55)}
+  .feature-card .slant-svg{display:none}   /* phones use the plain bordered box */
+  .feat-star{display:none}
   .feature-card.mir .body{padding:14px 18px}
   .feature-card h3{font-size:18px}
   .feature-card .desc{font-size:14px;margin-top:6px}

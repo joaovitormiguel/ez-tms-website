@@ -57,15 +57,24 @@
     });
   });
 
-  /* gray sparkle divider centered in the aisle, in the middle of every set of four
-     cards (i.e. between the two rows of each pair) */
+  /* gray sparkle divider, centered in the aisle BETWEEN each set of four cards (i.e.
+     between every pair of rows). Absolutely positioned so it adds no vertical space —
+     the rows keep their uniform gap. */
   var STAR = 'M50 2 C53 33 67 47 98 50 C67 53 53 67 50 98 C47 67 33 53 2 50 C33 47 47 33 50 2 Z';
-  for (var ri = 0; ri + 1 < rows.length; ri += 2) {
+  var stars = [];
+  for (var g = 0; g + 1 < rows.length; g += 2) {     // pinch in the middle of each set of four
     var star = document.createElement('div');
     star.className = 'feat-star';
     star.setAttribute('aria-hidden', 'true');
     star.innerHTML = '<svg viewBox="0 0 100 100"><path d="' + STAR + '" fill="currentColor"/></svg>';
-    rows[ri].insertAdjacentElement('afterend', star);
+    stack.appendChild(star);
+    stars.push({ el: star, g: g });
+  }
+  function placeStars() {
+    stars.forEach(function (s) {
+      var a = rows[s.g], b = rows[s.g + 1];          // gap between this row and the next
+      s.el.style.top = ((a.offsetTop + a.offsetHeight + b.offsetTop) / 2) + 'px';
+    });
   }
 
   function redraw() {
@@ -77,6 +86,7 @@
       s.path.setAttribute('d', buildPath(W, H, s.topWide));
       s.holder.setAttribute('transform', s.mir ? 'translate(' + W + ',0) scale(-1,1)' : '');
     });
+    placeStars();
   }
 
   function update() {
