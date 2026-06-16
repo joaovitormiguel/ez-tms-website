@@ -455,28 +455,7 @@ body.page-light{background:#fff}
 .enterprise{font-size:12px;letter-spacing:.08em;color:#fff;text-align:center;margin-top:46px;
   text-decoration:underline;text-underline-offset:4px}
 .center-title{font-size:70px;text-align:center;margin:140px 0 80px}
-/* what's included grid */
-.pf-grid{position:relative;display:grid;grid-template-columns:repeat(2,624px);gap:45px 29px;
-  justify-content:center}
-.pf-card{display:flex;align-items:stretch}
-.pf-tile{flex:0 0 203px;height:204px;background:url('assets/feature-box.png') center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 4px 12px 5px rgba(0,0,0,.33);position:relative;z-index:2}
-.pf-tile img{height:110px;width:auto;object-fit:contain}
-.pf-panel{flex:1;height:204px;padding:38px 30px 0 36px;position:relative;z-index:1}
-.pf-panel::before{content:"";position:absolute;inset:0;z-index:-1;
-  background-size:100% 100%;background-repeat:no-repeat}
-.pf-panel.s1::before{background-image:url('assets/pricing/slant-1.svg')}
-.pf-panel.s2::before{background-image:url('assets/pricing/slant-2.svg');transform:scaleX(-1)}
-.pf-panel.s3::before{background-image:url('assets/pricing/slant-3.svg');transform:scaleY(-1)}
-.pf-panel.s4::before{background-image:url('assets/pricing/slant-4.svg');transform:rotate(180deg)}
-.pf-panel.s5::before{background-image:url('assets/pricing/slant-5.svg')}
-.pf-panel.s6::before{background-image:url('assets/pricing/slant-6.svg');transform:scaleX(-1)}
-.pf-card.flip .pf-panel{padding:38px 36px 0 52px}
-.pf-panel h3{font-family:var(--display);font-weight:400;font-size:25.75px;color:#fff;
-  text-transform:uppercase;line-height:1;max-width:316px}
-.pf-panel p{font-size:18px;color:#fff;margin-top:9px;max-width:316px}
-.pf-star{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:123px;height:auto}
+/* what's included reuses the homepage feature-card system (.feat-stack / .feature-card) */
 /* add-ons */
 .addons-title{margin-top:160px}
 .addons{display:flex;gap:79px;justify-content:center}
@@ -673,8 +652,6 @@ body.page-light{background:#fff}
   .price-hero{flex-direction:column;align-items:center;gap:56px;padding-top:72px;text-align:center}
   .price-copy h1{font-size:54px}
   .center-title{font-size:54px;margin:90px 0 56px}
-  .pf-grid{grid-template-columns:1fr;max-width:640px;margin:0 auto;padding:0 var(--pad)}
-  .pf-star{display:none}
   .addons{flex-direction:column;align-items:center;gap:36px}
   .addons-title{margin-top:90px}
   .faq-title{font-size:54px;margin-bottom:56px}
@@ -823,12 +800,6 @@ body.page-light{background:#fff}
   .price-card .per{font-size:20px}
   .price-card .seats{font-size:15px;margin-top:22px}
   .center-title{font-size:32px;margin:64px 0 36px}
-  .pf-card{flex-direction:column}
-  .pf-card.flip{flex-direction:column-reverse}
-  .pf-tile{flex:none;width:160px;height:160px;margin:0 auto}
-  .pf-panel{height:auto;background:#101f44;border-radius:12px;padding:24px;margin-top:-12px}
-  .pf-panel::before{display:none}
-  .pf-card.flip .pf-panel{padding:24px}
   .addon-card{height:auto;padding:28px;width:100%}
   .addon-card h3{font-size:38px}
   .faq{padding:56px 0 64px}
