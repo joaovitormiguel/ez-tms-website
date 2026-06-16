@@ -417,6 +417,8 @@ body.page-light{background:#fff}
   font-size:19px;text-transform:uppercase;color:var(--navy2)}
 .cat-logos{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
 .cat-logos img{width:150px;height:58px;object-fit:contain}
+/* square/round marks size to their height so they don't reserve a wide, mostly-empty cell */
+.cat-logos img.sq{width:auto}
 .mkt-logos{display:flex;align-items:center;gap:40px;margin-bottom:96px}
 .mkt-logos img{width:230px;height:80px;object-fit:contain}
 .carrier-grid{display:flex;flex-wrap:wrap;gap:26px;align-items:center}
