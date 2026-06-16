@@ -52,14 +52,18 @@
 
   <div class="prob-shots">
     <div class="shot-cluster">
-      <button class="cluster-arrow left" aria-label="Previous">&lsaquo;</button>
-      <div class="cluster">
-        <img src="assets/myloads.png" alt="My Loads dashboard" class="shot shot-l" />
-        <img src="assets/load-pipelines.png" alt="Load pipelines" class="shot shot-r" />
-        <img src="assets/company-dashboard.png" alt="Company dashboard" class="shot shot-c" />
+      <button class="cluster-arrow left" id="shotPrev" aria-label="Previous screenshot">&lsaquo;</button>
+      <div class="shot-viewport">
+        <div class="shot-track" id="shotTrack">
+          <!-- SCREENSHOTS: to add one, drop the image in assets/ and add a line below. -->
+          <img src="assets/myloads.png" alt="My Loads dashboard" />
+          <img src="assets/load-pipelines.png" alt="Load pipelines" />
+          <img src="assets/company-dashboard.png" alt="Company dashboard" />
+        </div>
       </div>
-      <button class="cluster-arrow right" aria-label="Next">&rsaquo;</button>
+      <button class="cluster-arrow right" id="shotNext" aria-label="Next screenshot">&rsaquo;</button>
     </div>
+    <div class="dots" id="shotDots"></div>
   </div>
 
   <div class="wrap">
@@ -229,5 +233,6 @@
 </footer>
 
 <script src="assets/features-focus.js"></script>
+<script src="assets/carousel.js"></script>
 </body>
 </html>
