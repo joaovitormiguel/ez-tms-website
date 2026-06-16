@@ -146,18 +146,17 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .int-title{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:50px;margin-bottom:16px}
 .int-sub{font-size:18px;color:#cdd6ea;max-width:60ch;margin:0 auto 30px}
 .int-sub strong{color:#fff}
-.logo-strip{display:flex;align-items:center;justify-content:center;gap:54px;flex-wrap:wrap;
-  border:3px solid var(--red);border-radius:18px;padding:26px 40px;margin:0 auto 30px;max-width:1180px}
-.logo-strip{padding:22px 0;overflow:hidden}
+.logo-strip{background:#fff;border:3px solid var(--red);border-radius:18px;
+  padding:18px 0;margin:0 auto 30px;max-width:1180px;overflow:hidden}
 .marquee{overflow:hidden;width:100%;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.marquee-track{display:flex;align-items:center;gap:54px;width:max-content;animation:marquee 30s linear infinite}
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+/* two identical ticker images side by side; -50% scrolls exactly one copy → seamless */
+.marquee-track{display:flex;align-items:center;width:max-content;animation:marquee 45s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-track img{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1);flex:0 0 auto}
+.marquee-track img{height:58px;width:auto;display:block;flex:0 0 auto}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.marquee-track{animation:none}}
-.logo-strip img{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1)}
 
 /* ===== testimonial ===== */
 .testimonial{position:relative;overflow:visible;background:var(--white);color:var(--navy);padding:92px 0 104px}
@@ -691,7 +690,8 @@ body.page-light{background:#fff}
   .feature-card.mir .body{padding:14px 18px}
   .feature-card h3{font-size:18px}
   .feature-card .desc{font-size:14px;margin-top:6px}
-  .logo-strip{gap:28px;padding:22px}
+  .logo-strip{padding:14px 0}
+  .marquee-track img{height:44px}
   .testimonial{padding:60px 0 56px}
   .testimonial-wrap{padding-left:34%}
   .test-finger{width:42%;left:-8%;transform:translateY(-22%)}
