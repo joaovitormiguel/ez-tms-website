@@ -126,7 +126,10 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .feature-card .ic img{width:auto;height:16cqw;max-width:18cqw;object-fit:contain}
 /* slanted red-outline panel (per-card SVG via --slant) */
 .feature-card .body{flex:1;min-width:0;height:32.6cqw;display:flex;flex-direction:column;justify-content:center;
-  padding:0 9cqw 0 6cqw;background:var(--slant) center/100% 100% no-repeat}
+  padding:0 9cqw 0 6cqw;position:relative}
+/* inline SVG outline — non-scaling-stroke keeps every edge the same weight */
+.feature-card .slant-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.feature-card .body h3,.feature-card .body .desc{position:relative;z-index:1}
 .feature-card h3{font-size:4.4cqw;line-height:1.08;color:#fff}
 .feature-card .desc{font-family:var(--body);font-weight:400;text-transform:none;
   font-size:3.05cqw;line-height:1.32;color:#b9c3dd;margin-top:2cqw}
