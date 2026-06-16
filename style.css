@@ -46,8 +46,8 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .stripes{display:flex;flex-direction:column;width:100%}
 .stripes span{height:16px}
 .stripes span:nth-child(1){background:var(--red)}
-.stripes span:nth-child(2){background:var(--navy3)}
-.stripes span:nth-child(3){background:var(--red)}
+.stripes span:nth-child(2){background:#fff}
+.stripes span:nth-child(3){background:var(--navy2)}
 
 /* ===== header ===== */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(10,18,37,.95);backdrop-filter:blur(8px)}
