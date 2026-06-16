@@ -303,7 +303,7 @@ body.page-light{background:#fff}
   linear-gradient(0deg,#0a1225 5%,rgba(10,18,37,0) 69%)}
 .ltl-band{background:var(--navy);padding:130px 0 56px}
 .lead-light{font-size:22px;letter-spacing:.07em;text-align:center;color:#fff;max-width:786px;margin:0 auto 70px}
-.shot-cluster{display:flex;align-items:center;justify-content:center;gap:12px}
+.shot-cluster{position:relative;display:flex;justify-content:center}
 /* layered fan: current screenshot centered + on top, prev/next peeking behind */
 .fan{position:relative;width:1180px;max-width:100%;aspect-ratio:1180/378;margin:0 auto}
 .fan img{position:absolute;top:50%;left:50%;width:60%;height:auto;border-radius:12px;object-fit:cover;
@@ -312,9 +312,14 @@ body.page-light{background:#fff}
 .fan img.is-c{opacity:1;z-index:3;transform:translate(-50%,-50%) scale(1);box-shadow:0 16px 40px rgba(20,40,90,.3)}
 .fan img.is-l{opacity:1;z-index:2;transform:translate(-86%,-50%) scale(.85);filter:brightness(.8)}
 .fan img.is-r{opacity:1;z-index:2;transform:translate(-14%,-50%) scale(.85);filter:brightness(.8)}
-.cluster-arrow{flex:0 0 auto;background:none;border:none;color:var(--red);font-size:44px;line-height:1;
-  cursor:pointer;font-family:var(--display);padding:0}
-.cluster-arrow:hover{color:#ff3d41}
+.cluster-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:4;
+  width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.92);box-shadow:0 4px 16px rgba(20,40,90,.22);
+  color:var(--red);font-size:30px;line-height:1;cursor:pointer;border:none;font-family:var(--display);
+  padding:0 0 4px;transition:background .15s ease,transform .15s ease}
+.cluster-arrow:hover{background:#fff;transform:translateY(-50%) scale(1.08)}
+.cluster-arrow.left{left:15%}
+.cluster-arrow.right{right:15%}
 .dots{display:flex;justify-content:center;gap:9px;margin-top:30px}
 .dots span{width:9px;height:9px;border-radius:50%;background:rgba(20,40,90,.22);cursor:pointer;transition:background .2s}
 .dots span:hover{background:rgba(20,40,90,.45)}
@@ -741,8 +746,9 @@ body.page-light{background:#fff}
   .cta-band{height:360px}
   .ltl-band{padding:56px 0 40px}
   .lead-light{font-size:17px;margin-bottom:36px}
-  .shot-cluster{gap:8px}
-  .cluster-arrow{font-size:32px}
+  .cluster-arrow{width:40px;height:40px;font-size:24px}
+  .cluster-arrow.left{left:4%}
+  .cluster-arrow.right{right:4%}
   .big-quote{padding:48px 0 48px;min-height:0}
   .bq-finger{display:none}
   .bq-content{margin:0;padding:0 var(--pad)}
