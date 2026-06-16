@@ -814,3 +814,38 @@ body.page-light{background:#fff}
   .faq-list details p{font-size:15px}
   .pricing-dark{padding-bottom:64px}
 }
+
+/* ===== Demo request modal ===== */
+.demo-modal{position:fixed;inset:0;z-index:1000;display:none}
+.demo-modal.is-open{display:flex;align-items:center;justify-content:center}
+.demo-overlay{position:absolute;inset:0;background:rgba(8,12,25,.62);backdrop-filter:blur(2px)}
+.demo-dialog{position:relative;z-index:1;width:100%;max-width:620px;max-height:92vh;overflow-y:auto;
+  background:#fff;color:var(--navy);border-radius:22px;padding:40px 44px;
+  box-shadow:0 30px 80px rgba(5,8,20,.45);animation:demoPop .22s ease}
+@keyframes demoPop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.demo-close{position:absolute;top:16px;right:20px;width:40px;height:40px;border:none;background:none;
+  font-size:34px;line-height:1;color:#9aa3bd;cursor:pointer;border-radius:50%;transition:color .15s,background .15s}
+.demo-close:hover{color:var(--navy);background:#eef1f7}
+.demo-title{font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:34px;
+  color:var(--navy2);margin:0 0 22px}
+.demo-form{display:flex;flex-direction:column;gap:18px}
+.df-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.df-field{display:flex;flex-direction:column;gap:8px}
+.df-label{font-family:var(--body);font-weight:600;font-size:16px;color:var(--navy2);text-transform:none}
+.df-label .req{color:var(--red);margin-left:2px}
+.demo-form input{font-family:var(--body);font-size:16px;color:var(--navy);background:#f4f6fb;
+  border:1px solid #e2e7f1;border-radius:16px;padding:15px 18px;width:100%;transition:border-color .15s,box-shadow .15s}
+.demo-form input::placeholder{color:#9aa3bd}
+.demo-form input:focus{outline:none;border-color:var(--navy2);box-shadow:0 0 0 3px rgba(24,41,84,.12)}
+.demo-form input:user-invalid{border-color:var(--red)}
+.demo-submit{align-self:flex-start;margin-top:8px;background:var(--navy2);color:#fff;border:none;
+  border-radius:999px;padding:15px 40px;font-family:var(--body);font-weight:700;font-size:17px;
+  cursor:pointer;transition:background .15s,transform .05s}
+.demo-submit:hover{background:var(--navy3)}
+.demo-submit:active{transform:translateY(1px)}
+.demo-thanks{font-size:18px;color:var(--navy2);padding:8px 0}
+@media (max-width:560px){
+  .demo-dialog{padding:32px 22px;border-radius:18px}
+  .demo-title{font-size:26px}
+  .df-row{grid-template-columns:1fr}
+}
