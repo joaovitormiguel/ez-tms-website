@@ -412,7 +412,7 @@ body.page-light{background:#fff}
 .int-inner{padding:88px 120px 110px}
 .cat-head{font-family:"Red Hat Display",var(--display);font-weight:900;font-size:40px;
   text-transform:uppercase;color:var(--navy2);margin-bottom:38px}
-.cats{display:flex;flex-direction:column;gap:30px;margin-bottom:96px}
+.cats{display:flex;flex-direction:column;gap:60px;margin-bottom:96px}
 .cat-row{display:flex;align-items:center;gap:28px}
 .cat-label{flex:0 0 300px;font-family:"Red Hat Display",var(--display);font-weight:900;
   font-size:19px;text-transform:uppercase;color:var(--navy2)}
@@ -772,7 +772,7 @@ body.page-light{background:#fff}
   .btn-solid.lg{font-size:13px;padding:12px 18px}
   .int-inner{padding:56px var(--pad)}
   .cat-head{font-size:24px;margin-bottom:24px}
-  .cats{gap:24px;margin-bottom:56px}
+  .cats{gap:44px;margin-bottom:56px}
   .cat-row{flex-direction:column;align-items:stretch;gap:14px}
   .cat-label{flex:none}
   /* phones: a tidy 2-column grid — every category has an even logo count (2/4/6),
