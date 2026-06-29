@@ -919,8 +919,32 @@ body.page-light{background:#fff}
 .demo-dialog .hs-error-msgs{list-style:none;margin:6px 0 0;padding:0}
 .demo-dialog .hs-error-msgs label,.demo-dialog .hs-error-msg{color:var(--red);font-size:13px;font-weight:400}
 .demo-dialog .submitted-message,.demo-dialog .hs-main-font-element{font-family:var(--body);font-size:18px;color:var(--navy2);padding:8px 0}
+
+/* ---- Contact modal (self-hosted form; reuses the .demo-modal chrome) ---- */
+.contact-lead{font-family:var(--body);font-size:15px;color:#6b748f;margin:0 0 22px;line-height:1.5}
+.contact-lead a{color:var(--navy2);font-weight:600;text-decoration:underline}
+.contact-form{display:flex;flex-direction:column;gap:18px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cf-field{display:flex;flex-direction:column;gap:8px}
+.cf-label{font-family:var(--body);font-weight:600;font-size:16px;color:var(--navy2)}
+.cf-label .req{color:var(--red);margin-left:2px}
+.contact-form input,.contact-form textarea{font-family:var(--body);font-size:16px;color:var(--navy);
+  background:#f4f6fb;border:1px solid #e2e7f1;border-radius:16px;padding:15px 18px;width:100%;box-sizing:border-box;
+  transition:border-color .15s,box-shadow .15s}
+.contact-form textarea{min-height:130px;resize:vertical;line-height:1.5}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#9aa3bd}
+.contact-form input:focus,.contact-form textarea:focus{outline:none;border-color:var(--navy2);box-shadow:0 0 0 3px rgba(24,41,84,.12)}
+.contact-form input:user-invalid,.contact-form textarea:user-invalid{border-color:var(--red)}
+.contact-submit{align-self:flex-start;margin-top:6px;background:var(--navy2);color:#fff;border:none;
+  border-radius:999px;padding:15px 40px;font-family:var(--body);font-weight:700;font-size:17px;cursor:pointer;
+  transition:background .15s,transform .05s}
+.contact-submit:hover{background:var(--navy3)}
+.contact-submit:active{transform:translateY(1px)}
+.contact-thanks{font-size:18px;color:var(--navy2);padding:8px 0}
+
 @media (max-width:560px){
   .demo-dialog{padding:32px 22px;border-radius:18px}
   .demo-title{font-size:26px}
   .demo-dialog .form-columns-2{flex-direction:column;gap:0}
+  .cf-row{grid-template-columns:1fr}
 }
