@@ -463,6 +463,12 @@ body.page-light{background:#fff}
   text-decoration:underline;text-underline-offset:4px}
 .center-title{font-size:70px;text-align:center;margin:140px 0 80px}
 /* what's included reuses the homepage feature-card system (.feat-stack / .feature-card) */
+/* its copy runs longer than the homepage cards, so give the cards more height
+   (desktop/tablet only — phones keep the auto-height bordered layout) */
+@media (min-width:761px){
+  .pricing-dark .feature-card .ic,
+  .pricing-dark .feature-card .body{height:40cqw}
+}
 /* add-ons */
 .addons-title{margin-top:160px}
 .addons{display:flex;gap:79px;justify-content:center}
