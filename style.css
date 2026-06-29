@@ -310,7 +310,7 @@ body.page-light{background:#fff}
 /* dark CTA band with side photo */
 .cta-band{position:relative;height:488px;background:#0a1225;overflow:hidden;
   display:flex;align-items:center;justify-content:center;text-align:center}
-.cta-band-photo{position:absolute;right:0;top:48px;width:1061px;height:440px;object-fit:cover}
+.cta-band-photo{position:absolute;right:0;top:0;width:1061px;height:100%;object-fit:cover}
 .cta-band::after{content:"";position:absolute;inset:0;
   background:linear-gradient(90deg,#0a1225 36%,rgba(10,18,37,.5) 100%)}
 .cta-band-inner{position:relative;z-index:2}
