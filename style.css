@@ -815,6 +815,26 @@ body.page-light{background:#fff}
   .pricing-dark{padding-bottom:64px}
 }
 
+/* ===== Legal / Privacy Policy ===== */
+.legal{background:#fff;color:var(--navy2);padding:96px 0 110px}
+.legal-inner{max-width:840px;margin:0 auto;padding:0 var(--pad)}
+.legal-title{font-family:"Red Hat Display",var(--display);font-weight:900;font-size:clamp(38px,5vw,64px);
+  line-height:1.05;color:var(--navy2);margin-bottom:8px}
+.legal-updated{font-size:15px;color:#6b748f;margin-bottom:40px;text-transform:uppercase;letter-spacing:.06em}
+.legal h2{font-family:"Red Hat Display",var(--display);font-weight:900;font-size:24px;color:var(--navy2);
+  margin:40px 0 12px;line-height:1.2}
+.legal p{font-family:var(--body);font-size:17px;line-height:1.7;color:#33405e;margin-bottom:14px}
+.legal ul{margin:0 0 16px 24px;padding:0}
+.legal li{font-family:var(--body);font-size:17px;line-height:1.7;color:#33405e;margin-bottom:6px;list-style:disc}
+.legal a{color:var(--red);text-decoration:underline;word-break:break-word}
+.legal a:hover{text-decoration:none}
+.legal-contact a{display:inline-block;color:var(--red)}
+@media (max-width:760px){
+  .legal{padding:64px 0 72px}
+  .legal h2{font-size:21px}
+  .legal p,.legal li{font-size:16px}
+}
+
 /* ===== Demo request modal ===== */
 .demo-modal{position:fixed;inset:0;z-index:1000;display:none}
 .demo-modal.is-open{display:flex;align-items:center;justify-content:center}
