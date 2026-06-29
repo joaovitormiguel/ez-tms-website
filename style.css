@@ -773,12 +773,13 @@ body.page-light{background:#fff}
   .int-inner{padding:56px var(--pad)}
   .cat-head{font-size:24px;margin-bottom:24px}
   .cats{gap:24px;margin-bottom:56px}
-  .cat-row{flex-direction:column;align-items:stretch;gap:12px}
+  .cat-row{flex-direction:column;align-items:stretch;gap:14px}
   .cat-label{flex:none}
-  /* phones: let logos wrap but stay centered so a leftover never sits alone on the left */
-  .cat-logos{flex-wrap:wrap;justify-content:center;gap:18px}
-  .cat-logos img{flex:0 0 auto;width:108px;height:44px}
-  .cat-logos img.sq{width:auto}
+  /* phones: a tidy 2-column grid — every category has an even logo count (2/4/6),
+     so rows stay full; a lone logo (Documents) just centers */
+  .cat-logos{flex-wrap:wrap;justify-content:center;align-items:center;gap:22px 14px}
+  .cat-logos img{flex:0 0 calc(50% - 7px);width:auto;max-width:calc(50% - 7px);height:46px;object-fit:contain}
+  .cat-logos img.sq{flex:0 0 calc(50% - 7px);max-width:calc(50% - 7px);width:auto}
   .mkt-logos{margin-bottom:56px}
   .mkt-logos img{width:160px;height:56px}
   .carrier-grid{gap:16px}
