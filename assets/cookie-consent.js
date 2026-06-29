@@ -9,11 +9,11 @@
   bar.setAttribute('role', 'dialog');
   bar.setAttribute('aria-label', 'Cookie consent');
   bar.innerHTML =
-    '<p class="cookie-text">We use cookies to give you the best experience on our site. ' +
-    'See our <a href="privacy.html">Privacy Policy</a>.</p>' +
+    '<p class="cookie-text">By using this website, you agree to our use of cookies. We use cookies to ' +
+    'provide you with a great experience and to help our website run effectively. ' +
+    '<a href="privacy.html">Privacy Policy</a>.</p>' +
     '<div class="cookie-actions">' +
-      '<button type="button" class="cookie-btn decline" data-consent="declined">Decline</button>' +
-      '<button type="button" class="cookie-btn accept" data-consent="accepted">Accept</button>' +
+      '<button type="button" class="cookie-btn accept" data-consent="acknowledged">OK</button>' +
     '</div>';
   document.body.appendChild(bar);
   requestAnimationFrame(function () { bar.classList.add('is-in'); });

@@ -844,7 +844,7 @@ body.page-light{background:#fff}
   box-shadow:0 -8px 30px rgba(5,8,20,.4);
   transform:translateY(110%);transition:transform .32s ease}
 .cookie-bar.is-in{transform:none}
-.cookie-text{font-family:var(--body);font-size:15px;line-height:1.5;color:#dfe5f2;margin:0;max-width:680px}
+.cookie-text{font-family:var(--body);font-size:15px;line-height:1.5;color:#dfe5f2;margin:0;max-width:820px}
 .cookie-text a{color:#fff;text-decoration:underline}
 .cookie-text a:hover{text-decoration:none}
 .cookie-actions{display:flex;gap:12px;flex:0 0 auto}
