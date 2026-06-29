@@ -824,8 +824,10 @@ body.page-light{background:#fff}
 .legal h2{font-family:"Red Hat Display",var(--display);font-weight:900;font-size:24px;color:var(--navy2);
   margin:40px 0 12px;line-height:1.2}
 .legal p{font-family:var(--body);font-size:17px;line-height:1.7;color:#33405e;margin-bottom:14px}
-.legal ul{margin:0 0 16px 24px;padding:0}
+.legal ul,.legal ol{margin:0 0 16px 24px;padding:0}
 .legal li{font-family:var(--body);font-size:17px;line-height:1.7;color:#33405e;margin-bottom:6px;list-style:disc}
+.legal ol{counter-reset:item}
+.legal ol li{list-style:decimal}
 .legal a{color:var(--red);text-decoration:underline;word-break:break-word}
 .legal a:hover{text-decoration:none}
 .legal-contact a{display:inline-block;color:var(--red)}
