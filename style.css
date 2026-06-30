@@ -202,7 +202,7 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .site-footer{background:#070d1c;padding:40px 0 24px}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
 .foot-brand{display:flex;align-items:center;gap:24px}
-.foot-logo{height:46px;width:auto}
+.foot-logo{height:46px;width:auto;margin-left:-11px}/* logo PNG has ~11px transparent bleed at this height — pull it back to align with the text */
 /* dark footer: render the logo all white (its navy wordmark is invisible on the dark bg) */
 .site-footer:not(.light) .foot-logo{filter:brightness(0) invert(1)}
 .contact{display:flex;flex-direction:column;gap:1px;font-size:13.5px;color:#aebbd8}
