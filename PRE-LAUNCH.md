@@ -20,5 +20,4 @@ Things to resolve before the site goes live / before driving paid traffic to it.
 
 - [ ] **"Discover" nav link** is still `href="#"` everywhere — decide on a Discover page or dropdown.
 - [ ] **Meta / OG tags + favicon** — only basic title/description set; add OG image, Twitter card, favicon.
-- [ ] **Pricing FAQ Q1 answer** is placeholder copy (repeats the Operations feature list) — confirm real copy.
 - [ ] **Quad logo** — needed for the integrations marquees (homepage + LTL Portal). It was only a placeholder in the original ticker, so there's no logo file; once a real Quad logo (PNG/SVG) is added to `assets/integrations/`, drop it into both marquees.
