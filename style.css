@@ -413,8 +413,8 @@ body.page-light{background:#fff}
 .int-inner{padding:88px 120px 110px}
 .cat-head{font-family:"Red Hat Display",var(--display);font-weight:900;font-size:40px;
   text-transform:uppercase;color:var(--navy2);margin-bottom:38px}
-.cats{display:flex;flex-direction:column;gap:60px;margin-bottom:96px}
-.cat-row{display:flex;align-items:center;gap:28px}
+.cats{display:flex;flex-direction:column;gap:0;margin-bottom:96px;border-top:1px solid #e6e9f1}
+.cat-row{display:flex;align-items:center;gap:28px;padding:26px 0;border-bottom:1px solid #e6e9f1}
 .cat-label{flex:0 0 300px;font-family:"Red Hat Display",var(--display);font-weight:900;
   font-size:19px;text-transform:uppercase;color:var(--navy2)}
 /* logos stay on ONE line and shrink to fit (nowrap) so no logo can wrap to an orphan;
