@@ -203,6 +203,8 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
 .foot-brand{display:flex;align-items:center;gap:24px}
 .foot-logo{height:46px;width:auto}
+/* dark footer: render the logo all white (its navy wordmark is invisible on the dark bg) */
+.site-footer:not(.light) .foot-logo{filter:brightness(0) invert(1)}
 .contact{display:flex;flex-direction:column;gap:1px;font-size:13.5px;color:#aebbd8}
 .contact .label{font-family:var(--body);font-weight:700;font-size:12px;letter-spacing:.06em;color:#fff;margin-bottom:3px}
 .foot-finger{height:72px;width:auto}
@@ -720,7 +722,9 @@ body.page-light{background:#fff}
   .cta-overlay{background:linear-gradient(180deg,rgba(24,41,84,0) 0%,rgba(24,41,84,.8) 58%,var(--navy2) 100%)}
   .cta-copy{padding:0 24px 44px;text-align:center}
   .cta-copy h2{font-size:34px}
-  .footer-inner{flex-direction:column;align-items:flex-start;gap:22px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:26px}
+  .foot-brand{flex-direction:column;align-items:flex-start;gap:14px}
+  .foot-finger{display:none}
   .foot-nav{text-align:left}
   .why-hero{padding-top:48px;padding-bottom:40px;min-height:0}
   .why-h1{font-size:36px}
