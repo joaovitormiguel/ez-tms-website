@@ -18,6 +18,20 @@
   var frame = modal.querySelector('.game-frame');
   var lastFocus = null;
 
+  // hand keyboard focus to the game once it loads, so "press space to start" reaches
+  // the game (focusing the close button instead would make Space close the modal).
+  // also wire Esc from inside the iframe, since its key events don't bubble to the parent.
+  frame.addEventListener('load', function () {
+    if (!modal.classList.contains('is-open')) return;
+    try {
+      var w = frame.contentWindow;
+      (w || frame).focus();
+      if (w && w.document) w.document.addEventListener('keydown', function (ev) {
+        if (ev.key === 'Escape') close();
+      });
+    } catch (e) { frame.focus(); }
+  });
+
   function open(e) {
     if (e) e.preventDefault();
     lastFocus = document.activeElement;
@@ -25,7 +39,6 @@
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    modal.querySelector('.game-close').focus();
   }
   function close() {
     modal.classList.remove('is-open');
