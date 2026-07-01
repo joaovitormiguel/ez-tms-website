@@ -33,7 +33,12 @@
     if (a.classList.contains('nav-dd-trigger')) {
       if (window.matchMedia('(max-width:760px)').matches) {
         e.preventDefault();
-        a.closest('.nav-dd').classList.toggle('dd-open');
+        var dd = a.closest('.nav-dd');
+        dd.classList.toggle('dd-open');
+        // force the revealed sub-items to paint (works around a compositing bug where
+        // they'd otherwise stay blank until the window is re-focused)
+        var menu = dd.querySelector('.nav-dd-menu');
+        if (menu) { menu.style.display = 'none'; void menu.offsetHeight; menu.style.display = ''; }
       }
       return;
     }
