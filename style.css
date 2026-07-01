@@ -717,8 +717,12 @@ body.page-light{background:#fff}
   .nav-dd-menu::before{display:none}
   .site-header.light .nav-dd-menu{background:rgba(0,0,0,.04)}
   .nav-dd.dd-open .nav-dd-menu{max-height:240px}
+  /* the desktop hover-dropdown rule sets transform:translateX(-50%) — neutralize it here
+     so hovering doesn't shift the mobile accordion sideways */
+  .nav-dd:hover .nav-dd-menu,.nav-dd:focus-within .nav-dd-menu{transform:none}
   .nav-dd-menu a{white-space:normal;padding:13px var(--pad) 13px calc(var(--pad) + 18px);font-size:14px}
   .site-header.light .nav .nav-dd-menu a{color:var(--navy2)}
+  .site-header.light .nav .nav-dd-menu a:hover{color:var(--red);background:rgba(0,0,0,.05)}
   .nav .btn-outline{margin:14px var(--pad) 0;text-align:center;display:block;padding:12px}
   .hero{min-height:auto;padding:40px 0}
   .hero h1{font-size:44px}
