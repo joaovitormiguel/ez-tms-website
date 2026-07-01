@@ -74,6 +74,15 @@ h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;lin
 /* keep menu items light even inside the white (light) header */
 .site-header.light .nav .nav-dd-menu a{color:#e7ecf7}
 .site-header.light .nav .nav-dd-menu a:hover{color:var(--red)}
+/* mobile hamburger toggle (revealed by the ≤760 media query) */
+.nav-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+  width:44px;height:44px;margin-left:auto;padding:0;background:none;border:none;cursor:pointer}
+.nav-toggle span{display:block;width:26px;height:3px;border-radius:2px;background:#fff;
+  transition:transform .25s ease,opacity .2s ease}
+.site-header.light .nav-toggle span{background:var(--navy2)}
+.site-header.nav-open .nav-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.site-header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.site-header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
 
 /* ===== hero ===== */
 .hero{position:relative;min-height:584px;display:flex;align-items:center;overflow:hidden;
@@ -678,9 +687,35 @@ body.page-light{background:#fff}
 }
 @media (max-width:760px){
   :root{--pad:24px}
-  .nav{gap:14px}
-  .nav a:not(.btn-outline){display:none}
-  .nav-dd{display:none}
+  .nav-toggle{display:flex}
+  /* nav becomes a slide-down panel below the header */
+  .nav{position:fixed;top:63px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;
+    background:#0a1225;padding:6px 0 18px;
+    max-height:calc(100vh - 63px);overflow-y:auto;z-index:49;border-top:1px solid rgba(255,255,255,.08);
+    transform:translateY(-10px);opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .22s ease,transform .22s ease,visibility .22s}
+  .site-header.light .nav{background:#fff;border-top-color:rgba(0,0,0,.08);
+    box-shadow:0 16px 24px rgba(0,0,0,.12)}
+  .site-header.nav-open .nav{transform:none;opacity:1;visibility:visible;pointer-events:auto}
+  .nav a:not(.btn-outline){display:block;padding:15px var(--pad);font-size:15px;
+    border-bottom:1px solid rgba(255,255,255,.06)}
+  .site-header.light .nav a:not(.btn-outline){border-bottom-color:rgba(0,0,0,.06)}
+  /* Discover becomes a tap-to-expand accordion */
+  .nav-dd{display:block;position:static}
+  .nav-dd-trigger{justify-content:space-between;padding:15px var(--pad);font-size:15px;
+    border-bottom:1px solid rgba(255,255,255,.06)}
+  .site-header.light .nav-dd-trigger{border-bottom-color:rgba(0,0,0,.06)}
+  .nav-dd .caret{font-size:11px}
+  .nav-dd.dd-open .caret{transform:rotate(180deg)}
+  .nav-dd-menu{position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;
+    min-width:0;margin:0;padding:0;border:none;border-radius:0;box-shadow:none;background:rgba(0,0,0,.2);
+    max-height:0;overflow:hidden;transition:max-height .25s ease}
+  .nav-dd-menu::before{display:none}
+  .site-header.light .nav-dd-menu{background:rgba(0,0,0,.04)}
+  .nav-dd.dd-open .nav-dd-menu{max-height:240px}
+  .nav-dd-menu a{white-space:normal;padding:13px var(--pad) 13px calc(var(--pad) + 18px);font-size:14px}
+  .site-header.light .nav .nav-dd-menu a{color:var(--navy2)}
+  .nav .btn-outline{margin:14px var(--pad) 0;text-align:center;display:block;padding:12px}
   .hero{min-height:auto;padding:40px 0}
   .hero h1{font-size:44px}
   .hero p{max-width:none}
