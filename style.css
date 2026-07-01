@@ -700,12 +700,12 @@ body.page-light{background:#fff}
   .nav a:not(.btn-outline){display:block;padding:15px var(--pad);font-size:15px;
     border-bottom:1px solid rgba(255,255,255,.06)}
   .site-header.light .nav a:not(.btn-outline){border-bottom-color:rgba(0,0,0,.06)}
-  /* Discover becomes a tap-to-expand accordion */
+  /* Discover becomes a tap-to-expand accordion; the chevron sits at the far right */
   .nav-dd{display:block;position:static}
-  .nav-dd-trigger{justify-content:space-between;padding:15px var(--pad);font-size:15px;
-    border-bottom:1px solid rgba(255,255,255,.06)}
+  .nav a.nav-dd-trigger{display:flex;justify-content:space-between;align-items:center;
+    padding:15px var(--pad);font-size:15px;border-bottom:1px solid rgba(255,255,255,.06)}
   .site-header.light .nav-dd-trigger{border-bottom-color:rgba(0,0,0,.06)}
-  .nav-dd .caret{font-size:11px}
+  .nav-dd .caret{font-size:17px;color:var(--red);line-height:1;transition:transform .25s ease}
   .nav-dd.dd-open .caret{transform:rotate(180deg)}
   .nav-dd-menu{position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;
     min-width:0;margin:0;padding:0;border:none;border-radius:0;box-shadow:none;background:rgba(0,0,0,.2);
